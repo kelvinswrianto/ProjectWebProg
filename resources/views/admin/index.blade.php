@@ -5,11 +5,10 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>
-        @yield('title', 'Default title')
-    </title>
+    <title>Document</title>
     <style>
         *{
+            font-family: "Calibri Light";
             margin: 0px;
             padding: 0px;
         }
@@ -18,18 +17,16 @@
             overflow: hidden;
             background-color: #F37A71;
             padding: 0px 100px;
-            height: 80px;
-            font-family: "Bahnschrift Light", serif;
         }
 
         /* Style the header links */
-        .header a, .rightheader div {
+        .header a, .rightheader div{
             float: left;
             color: white;
             text-align: center;
-            padding: 25px 5px;
+            padding: 10px 5px;
             text-decoration: none;
-            font-size: 23px;
+            font-size: 14px;
             border-radius: 4px;
             margin: 0px 10px;
         }
@@ -47,15 +44,14 @@
 
         /* Dropdown button */
         .dropbtn {
-            font-size: 23px;
+            font-size: 14px;
             border: none;
             outline: none;
             color: white;
-            padding: 25px 5px;
+            padding: 10px 5px;
             background-color: inherit;
             border-radius: 4px;
             margin: 0px 10px;
-            font-family: "Bahnschrift Light", serif;
         }
 
         /* Dropdown content (hidden by default) */
@@ -108,84 +104,102 @@
             display: inline-block;
         }
 
-        .datediv{
+        .contentbtn{
+            color: white;
+            text-align: center;
+            padding: 10px 5px;
+            text-decoration: none;
+            font-size: 14px;
+            border-radius: 4px;
+            margin: 0px 10px;
+            background-color: #F37A71;
+        }
+        .contentbtn:hover{
+            background-color: blanchedalmond;
+            border-color: #F37A71;
+            color: #F37A71;
+        }
+        .content{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .content hr{
+            width: 80%;
+        }
+        .content #title{
+            font-size: 30px;
+            margin: 20px;
+            color: #F37A71;
+        }
+        #date{
             font-family: "Sitka Banner", serif;
         }
+
     </style>
 </head>
 <body>
 <div class="header">
     <div class="leftheader">
         <a href="#default" class="logo">Online Florist</a>
-        <?php
-        session_start();
-        if(isset($_SESSION['Username'])){
-            echo "<a href=#home' class='menu'>Profile</a>";
-        }
-        ?>
+        <a href="#home" class="menu">Profile</a>
+        <div class="dropdown">
+            <button href="#contact" class="menu dropbtn">
+                Admin Menu
+                <i class="arrow down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="#">Manage Flower</a>
+            </div>
+        </div>
     </div>
     <div class="rightheader">
-        <?php
-        if(isset($_SESSION['Username'])){
-            echo "<div class='leftheader'>";
-            echo "<div class='dropdown'>";
-            echo "<button href='#contact' class='menu dropbtn'>
-                        Admin Menu
-                    <i class='arrow down'></i>
-                </button>";
-            echo "<div class='dropdown-content'>";
-            echo "<a href='#'>Manage Flower</a>";
-            echo "</div>";
-            echo "</div>";
-            echo "</div>";
-            $username = $_SESSION['username'];
-            echo "$username";
-            echo "<a href=#' class='datediv' id='date'></a>";
-            echo "<a href=#' class='loginstatus'></a>";
-        }
-        else{
-            echo "<a href=#'>Login</a>";
-            echo "<a href=#'>Register</a>";
-        }
-        ?>
+        <div class="datediv"><p id="date"></p></div>
+        <div class="loginstatus">ADMIN()</div>
     </div>
-
 </div>
 
-<div>
-    @yield('content')
+<div class="content">
+    <p id="title">Manage Flowers</p>
+    <hr>
+    <a href="" class="contentbtn">Insert Flower</a>
 </div>
+
 </body>
 <script>
-    n =  new Date();
-    y = n.getFullYear();
-    m = n.getMonth();
-    d = n.getDay();
-    h = n.getHours();
-    minute = n.getMinutes();
-    second = n.getSeconds();
-    var month = new Array();
-    month[0] = "Jan";
-    month[1] = "Feb";
-    month[2] = "Mar";
-    month[3] = "Apr";
-    month[4] = "May";
-    month[5] = "Jun";
-    month[6] = "Jul";
-    month[7] = "Aug";
-    month[8] = "Sep";
-    month[9] = "Oct";
-    month[10] = "Nov";
-    month[11] = "Dec";
-
-    var day = new Array();
-    day[0] = "Sun";
-    day[1] = "Mon";
-    day[2] = "Tue";
-    day[3] = "Wed";
-    day[4] = "Thu";
-    day[5] = "Fri";
-    day[6] = "Sat";
-    document.getElementById("date").innerHTML = h + ":" + minute + ":" + second + " " + month[m] + "/" + day[d] + "/" + y;
+    function updateTime() {
+        n =  new Date();
+        y = n.getFullYear();
+        m = n.getMonth();
+        d = n.getDay();
+        h = n.getHours();
+        minute = n.getMinutes();
+        second = n.getSeconds();
+        var month = new Array();
+        month[0] = "Jan";
+        month[1] = "Feb";
+        month[2] = "Mar";
+        month[3] = "Apr";
+        month[4] = "May";
+        month[5] = "Jun";
+        month[6] = "Jul";
+        month[7] = "Aug";
+        month[8] = "Sep";
+        month[9] = "Oct";
+        month[10] = "Nov";
+        month[11] = "Dec";
+        var day = new Array();
+        day[0] = "Sun";
+        day[1] = "Mon";
+        day[2] = "Tue";
+        day[3] = "Wed";
+        day[4] = "Thu";
+        day[5] = "Fri";
+        day[6] = "Sat";
+        var dtString = h + ":" + minute + ":" + second + " " + month[m] + "/" + day[d] + "/" + y;;
+        document.getElementById("date").innerHTML = dtString
+        setTimeout(updateTime,1000);
+    }
+    updateTime();
 </script>
 </html>
