@@ -15,10 +15,15 @@ class CourierController extends Controller
         ];
         $this->validate($request, $rules);
 
-        $courier = courier::find($id);
+        $courier = Courier::find($id);
         $courier->courier_name = $request->courier_name;
         $courier->courier_price = $request->courier_price;
         $courier->save();
         return redirect()->back();
+    }
+    public function edit($id)
+    {
+        $courier = Courier::find($id);
+        return view('UpdateCourier', compact('courier'));
     }
 }

@@ -19,6 +19,5 @@ Route::get('/', function () {
 Route::get('/layout', function () {
     return view('layout');
 });
-Route::get('/courier/{id}', function (){
-    return view('UpdateCourier');
-});
+Route::put('/courier/{id}', 'CourierController@update');
+Route::get('/courier/{id}/edit', 'CourierController@edit');

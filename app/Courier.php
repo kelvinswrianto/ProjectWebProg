@@ -4,8 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class courier extends Model
+class Courier extends Model
 {
     //
-    protected $table = 'couriers';
+    public $timestamps = false;
 }
