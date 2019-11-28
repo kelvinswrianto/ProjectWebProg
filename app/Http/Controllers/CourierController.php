@@ -24,6 +24,6 @@ class CourierController extends Controller
     public function edit($id)
     {
         $courier = Courier::find($id);
-        return view('UpdateCourier', compact('courier'));
+        return view('admin.UpdateCourier', compact('courier'));
     }
 }

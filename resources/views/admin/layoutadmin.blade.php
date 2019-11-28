@@ -159,9 +159,40 @@
             text-align: right;
             font-size:16px;
         }
-        .form-insert input.input-field, .form-insert .select-field{
+
+        .form-insert tr{
+            display: block;
+            margin: 0px 0px 15px 0px;
+        }
+
+        .form-insert td > span{
+            width: 100px;
+            font-weight: bold;
+            float: left;
+            padding-top: 8px;
+            padding-right: 5px;
+            margin-right: 20px;
+            text-align: right;
+            font-size:16px;
+        }
+
+        .form-insert td > input{
+            width: 500px;
+            font-weight: lighter;
+            float: left;
+            padding-top: 8px;
+            padding-right: 5px;
+            padding-left: 8px;
+            margin-right: 10px;
+            margin-left: 10px;
+            text-align: left;
+            font-size:16px;
+        }
+
+        .form-insert input.input-field, .form-insert .select-field,{
             width: 48%;
         }
+
         .form-insert input.input-field,
         .form-insert .textarea-field,
         .form-insert .select-field{

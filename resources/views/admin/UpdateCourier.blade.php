@@ -1,33 +1,33 @@
-@extends('layout')
+@extends('admin.layoutadmin')
 
-@section('title', 'Update')
+@section('title', 'Update Courier')
 
-@section('content')
-    <div class="insert-page-container">
-
-        <h1>Update Courier</h1>
+@section('contents')
+    <p id="title">Update Courier</p>
+    <hr>
+    <div class="form-insert">
         <form action="/courier/{{$courier->id}}" method="post" enctype="multipart/form-data">
             @csrf
-            {{method_field('put')}};
+            {{method_field('put')}}
             <table id="courier-insert">
                 <tr>
-                    <td>Courier ID</td>
+                    <td><span>Courier ID</span></td>
                     <td><input type="text" name="courier_name" value="{{$courier->id}}" disabled></td>
-                    <!-- code error here -->
                 </tr>
                 <tr>
-                    <td>Courier Name</td>
+                    <td><span>Courier Name</span></td>
                     <td><input type="text" name="courier_name" value="{{$courier->courier_name}}"></td>
-                    <!-- code error here -->
+                    {{$errors->first('courier_name')}}
                 </tr>
                 <tr>
-                    <td>Shipping Cost</td>
+                    <td><span>Shipping Cost</span></td>
                     <td><input type="number" name="courier_price" value="{{$courier->courier_price}}"></td>
-                    <!-- code error here -->
+                    {{$errors->first('courier_price')}}
                 </tr>
             </table>
-
-            <input type="submit" name="" value="Insert">
+            <div class="submit">
+                <input type="submit" name="" value="Insert">
+            </div>
         </form>
     </div>
 @endsection
