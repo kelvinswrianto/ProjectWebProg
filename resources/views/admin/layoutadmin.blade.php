@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>@yield('title')</title>
     <style>
         *{
             font-family: "Calibri Light";
@@ -104,20 +104,22 @@
             display: inline-block;
         }
 
-        .contentbtn{
+        .insertbtn{
             color: white;
             text-align: center;
             padding: 10px 5px;
             text-decoration: none;
             font-size: 14px;
             border-radius: 4px;
-            margin: 0px 10px;
+            margin-top: 20px;
+            margin-bottom: 20px;
             background-color: #F37A71;
+            border: 1px solid #F37A71;
         }
-        .contentbtn:hover{
-            background-color: blanchedalmond;
-            border-color: #F37A71;
+        .insertbtn:hover{
+            background-color: white;
             color: #F37A71;
+            border: 1px solid #F37A71;
         }
         .content{
             display: flex;
@@ -125,17 +127,109 @@
             align-items: center;
         }
         .content hr{
+            margin: 20px;
             width: 80%;
+            border: solid #F37A71 1px;
         }
         .content #title{
+            margin-top: 20px;
             font-size: 30px;
-            margin: 20px;
             color: #F37A71;
         }
         #date{
             font-family: "Sitka Banner", serif;
         }
 
+        .form-insert{
+            max-width: 500px;
+            padding: 20px 12px 10px 20px;
+            font: 13px Arial, Helvetica, sans-serif;
+        }
+        .form-insert label{
+            display: block;
+            margin: 0px 0px 15px 0px;
+        }
+        .form-insert label > span{
+            width: 100px;
+            font-weight: bold;
+            float: left;
+            padding-top: 8px;
+            padding-right: 5px;
+            margin-right: 20px;
+            text-align: right;
+            font-size:16px;
+        }
+        .form-insert input.input-field, .form-insert .select-field{
+            width: 48%;
+        }
+        .form-insert input.input-field,
+        .form-insert .textarea-field,
+        .form-insert .select-field{
+            box-sizing: border-box;
+            border: 1px solid #C2C2C2;
+            box-shadow: 1px 1px 4px #EBEBEB;
+            border-radius: 3px;
+            padding: 7px;
+            width: 300px;
+            outline: none;
+        }
+        .form-insert .input-field:focus,
+        .form-insert .textarea-field:focus,
+        .form-insert .select-field:focus{
+            border: 1px solid #F37A71;
+        }
+        .form-insert .textarea-field{
+            height:100px;
+            width: 55%;
+        }
+        .form-insert input[type=submit],
+        .form-insert input[type=button]{
+            border: solid #F37A71 1px;
+            padding: 8px 15px 8px 15px;
+            background: #F37A71;
+            color: #fff;
+            box-shadow: 1px 1px 4px #DADADA;
+            border-radius: 3px;
+            width: 100px;
+        }
+        .form-insert input[type=submit]:hover{
+            background: white;
+            color: #F37A71;
+            border-color: #F37A71;
+        }
+        input[type=number]::-webkit-inner-spin-button,
+        input[type=number]::-webkit-outer-spin-button {
+            opacity: 1;
+        }
+        .submit{
+            display: flex;
+            justify-content: center;
+        }
+        form.search input[type=text] {
+            padding: 5px;
+            font-size: 17px;
+            border: 1px solid #F37A71;
+            float: left;
+            width: 300px;
+            background: white;
+            margin-right: 10px;
+            border-radius: 7px;
+        }
+        form.search button {
+            float: left;
+            width: 100px;
+            padding: 5px;
+            background: #F37A71;
+            color: white;
+            font-size: 17px;
+            border: 1px solid #F37A71;
+            border-radius: 7px;
+            cursor: pointer;
+        }
+        form.search button:hover {
+            background: white;
+            color: #F37A71;
+        }
     </style>
 </head>
 <body>
@@ -160,11 +254,10 @@
 </div>
 
 <div class="content">
-    <p id="title">Manage Flowers</p>
+    @section('contents')
+    @show()
     <hr>
-    <a href="" class="contentbtn">Insert Flower</a>
 </div>
-
 </body>
 <script>
     function updateTime() {

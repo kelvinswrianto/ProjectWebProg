@@ -17,7 +17,7 @@ Route::get('/', function () {
 });
 
 Route::get('/layout', function () {
-    return view('layout');
+    return view('admin.insert_type');
 });
 Route::put('/courier/{id}', 'CourierController@update');
 Route::get('/courier/{id}/edit', 'CourierController@edit');
