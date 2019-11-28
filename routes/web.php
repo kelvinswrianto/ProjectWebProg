@@ -17,5 +17,5 @@ Route::get('/', function () {
 });
 
 Route::get('/layout', function () {
-    return view('layout');
+    return view('admin.insert_type');
 });
