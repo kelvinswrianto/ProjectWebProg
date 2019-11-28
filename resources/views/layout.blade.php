@@ -8,7 +8,6 @@
     <title>Document</title>
     <style>
         *{
-            font-family: "Calibri Light";
             margin: 0px;
             padding: 0px;
         }
@@ -17,6 +16,8 @@
             overflow: hidden;
             background-color: #F37A71;
             padding: 0px 100px;
+            height: 80px;
+            font-family: "Bahnschrift Light", serif;
         }
 
         /* Style the header links */
@@ -24,9 +25,9 @@
             float: left;
             color: white;
             text-align: center;
-            padding: 10px 5px;
+            padding: 25px 5px;
             text-decoration: none;
-            font-size: 14px;
+            font-size: 23px;
             border-radius: 4px;
             margin: 0px 10px;
         }
@@ -44,14 +45,15 @@
 
         /* Dropdown button */
         .dropbtn {
-            font-size: 14px;
+            font-size: 23px;
             border: none;
             outline: none;
             color: white;
-            padding: 10px 5px;
+            padding: 25px 5px;
             background-color: inherit;
             border-radius: 4px;
             margin: 0px 10px;
+            font-family: "Bahnschrift Light", serif;
         }
 
         /* Dropdown content (hidden by default) */
@@ -103,6 +105,10 @@
         .rightheader div{
             display: inline-block;
         }
+
+        .datediv{
+            font-family: "Sitka Banner", serif;
+        }
     </style>
 </head>
 <body>
@@ -130,8 +136,33 @@
 <script>
     n =  new Date();
     y = n.getFullYear();
-    m = n.getMonth() + 1;
-    d = n.getDate();
-    document.getElementById("date").innerHTML = m + "/" + d + "/" + y;
+    m = n.getMonth();
+    d = n.getDay();
+    h = n.getHours();
+    minute = n.getMinutes();
+    second = n.getSeconds();
+    var month = new Array();
+    month[0] = "Jan";
+    month[1] = "Feb";
+    month[2] = "Mar";
+    month[3] = "Apr";
+    month[4] = "May";
+    month[5] = "Jun";
+    month[6] = "Jul";
+    month[7] = "Aug";
+    month[8] = "Sep";
+    month[9] = "Oct";
+    month[10] = "Nov";
+    month[11] = "Dec";
+
+    var day = new Array();
+    day[0] = "Sun";
+    day[1] = "Mon";
+    day[2] = "Tue";
+    day[3] = "Wed";
+    day[4] = "Thu";
+    day[5] = "Fri";
+    day[6] = "Sat";
+    document.getElementById("date").innerHTML = h + ":" + minute + ":" + second + " " + month[m] + "/" + day[d] + "/" + y;
 </script>
 </html>
