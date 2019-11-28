@@ -130,7 +130,11 @@
         .content #title{
             font-size: 30px;
             margin: 20px;
-            color: #F37A71;        }
+            color: #F37A71;
+        }
+        #date{
+            font-family: "Sitka Banner", serif;
+        }
 
     </style>
 </head>
@@ -163,10 +167,39 @@
 
 </body>
 <script>
-    n =  new Date();
-    y = n.getFullYear();
-    m = n.getMonth() + 1;
-    d = n.getDate();
-    document.getElementById("date").innerHTML = m + "/" + d + "/" + y;
+    function updateTime() {
+        n =  new Date();
+        y = n.getFullYear();
+        m = n.getMonth();
+        d = n.getDay();
+        h = n.getHours();
+        minute = n.getMinutes();
+        second = n.getSeconds();
+        var month = new Array();
+        month[0] = "Jan";
+        month[1] = "Feb";
+        month[2] = "Mar";
+        month[3] = "Apr";
+        month[4] = "May";
+        month[5] = "Jun";
+        month[6] = "Jul";
+        month[7] = "Aug";
+        month[8] = "Sep";
+        month[9] = "Oct";
+        month[10] = "Nov";
+        month[11] = "Dec";
+        var day = new Array();
+        day[0] = "Sun";
+        day[1] = "Mon";
+        day[2] = "Tue";
+        day[3] = "Wed";
+        day[4] = "Thu";
+        day[5] = "Fri";
+        day[6] = "Sat";
+        var dtString = h + ":" + minute + ":" + second + " " + month[m] + "/" + day[d] + "/" + y;;
+        document.getElementById("date").innerHTML = dtString
+        setTimeout(updateTime,1000);
+    }
+    updateTime();
 </script>
 </html>

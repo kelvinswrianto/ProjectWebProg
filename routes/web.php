@@ -12,13 +12,10 @@
 */
 
 Route::get('/', function () {
-<<<<<<< HEAD
-    return view('admin.index');
-=======
+
     return view('welcome');
 });
 
 Route::get('/layout', function () {
     return view('layout');
->>>>>>> 9b1bb2c765fcc92f485a6c852d18ca449d44553c
 });

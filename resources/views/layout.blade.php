@@ -5,7 +5,9 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>
+        @yield('title', 'Default title')
+    </title>
     <style>
         *{
             margin: 0px;
@@ -115,22 +117,43 @@
 <div class="header">
     <div class="leftheader">
         <a href="#default" class="logo">Online Florist</a>
-        <a href="#home" class="menu">Profile</a>
-        <div class="dropdown">
-            <button href="#contact" class="menu dropbtn">
-                Admin Menu
-                <i class="arrow down"></i>
-            </button>
-            <div class="dropdown-content">
-                <a href="#">Manage Flower</a>
-            </div>
-        </div>
+        <?php
+        session_start();
+        if(isset($_SESSION['Username'])){
+            echo "<a href=#home' class='menu'>Profile</a>";
+        }
+        ?>
     </div>
     <div class="rightheader">
-        <div class="datediv"><p id="date"></p></div>
-        <div class="loginstatus">ADMIN()</div>
+        <?php
+        if(isset($_SESSION['Username'])){
+            echo "<div class='leftheader'>";
+            echo "<div class='dropdown'>";
+            echo "<button href='#contact' class='menu dropbtn'>
+                        Admin Menu
+                    <i class='arrow down'></i>
+                </button>";
+            echo "<div class='dropdown-content'>";
+            echo "<a href='#'>Manage Flower</a>";
+            echo "</div>";
+            echo "</div>";
+            echo "</div>";
+            $username = $_SESSION['username'];
+            echo "$username";
+            echo "<a href=#' class='datediv' id='date'></a>";
+            echo "<a href=#' class='loginstatus'></a>";
+        }
+        else{
+            echo "<a href=#'>Login</a>";
+            echo "<a href=#'>Register</a>";
+        }
+        ?>
     </div>
 
+</div>
+
+<div>
+    @yield('content')
 </div>
 </body>
 <script>
