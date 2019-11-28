@@ -14,3 +14,6 @@
 Route::get('/', function () {
     return view('layout');
 });
+Route::get('/courier/{id}', function (){
+    return view('UpdateCourier');
+});
