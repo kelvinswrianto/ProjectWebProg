@@ -42,4 +42,4 @@ Route::get('admin/layout', 'FlowerTypeController@create');
 Route::post('admin/layout', 'FlowerTypeController@store');
 
 Route::get('/profile/edit', 'ProfileController@edit');
-Route::put('/profile/', 'ProfileController@update');
+Route::put('/profile', 'ProfileController@update');
