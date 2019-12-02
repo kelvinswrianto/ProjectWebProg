@@ -25,7 +25,6 @@ Route::post('/registerPost', 'RegisterController@store');
 Route::post('/loginPost', 'RegisterController@loginPost');
 Route::put('/courier/{id}', 'CourierController@update');
 Route::get('/courier/{id}/edit', 'CourierController@edit');
-
 Route::group(['middleware' => ['web','auth']], function (){ //semua route yg pakai middleware masukin k sini
     Route::get('/insert', function (){
         if(Auth::user()->role == "user"){
@@ -41,3 +40,5 @@ Route::group(['middleware' => ['web','auth']], function (){ //semua route yg pak
 Route::get('admin/layout', 'FlowerTypeController@create');
 Route::post('admin/layout', 'FlowerTypeController@store');
 
+Route::get('/profile/{id}/edit', 'User@edit');
+Route::get('/profile/{id}', 'User@update');
