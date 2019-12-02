@@ -145,10 +145,6 @@
             padding: 20px 12px 10px 20px;
             font: 13px Arial, Helvetica, sans-serif;
         }
-        .form-insert p{
-            display: flex;
-            justify-content: left;
-        }
         .form-insert label{
             display: block;
             margin: 0px 0px 15px 0px;
