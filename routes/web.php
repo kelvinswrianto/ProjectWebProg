@@ -21,3 +21,5 @@ Route::get('/layout', function () {
 });
 Route::put('/courier/{id}', 'CourierController@update');
 Route::get('/courier/{id}/edit', 'CourierController@edit');
+Route::get('/profile/{id}/edit', 'User@edit');
+Route::get('/profile/{id}', 'User@update');
