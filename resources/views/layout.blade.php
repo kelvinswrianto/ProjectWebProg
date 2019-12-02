@@ -70,13 +70,24 @@
 
         /* Links inside the dropdown */
         .dropdown-content a {
+             float: none;
+             color: #F37A71;
+             padding: 12px 16px;
+             text-decoration: none;
+             display: block;
+             text-align: center;
+             border-radius: 4px;
+         }
+
+        .dropdown-content a:hover{
             float: none;
-            color: #F37A71;
+            color: #ffffff;
             padding: 12px 16px;
             text-decoration: none;
             display: block;
             text-align: center;
             border-radius: 4px;
+            background-color: #F37A71;
         }
 
         /* Show the dropdown menu on hover */
@@ -275,6 +286,7 @@
             display: flex;
             flex-direction: row;
             flex-flow: wrap;
+            margin-bottom: 50px;
             justify-content: space-around;
         }
 
@@ -475,7 +487,7 @@
                         </button>
                         <div class="dropdown-content">
                             <a href="#">Profile</a>
-                            <a href="#">Logout</a>
+                            <a href="{{url('/logout')}}">Logout</a>
                         </div>
                     </div>
                 @else
@@ -486,7 +498,7 @@
                         </button>
                         <div class="dropdown-content">
                             <a href="#">Profile</a>
-                            <a href="#">Logout</a>
+                            <a href="{{url('/logout')}}">Logout</a>
                         </div>
                     </div>
                 @endif
