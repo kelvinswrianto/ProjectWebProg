@@ -6,9 +6,10 @@
     <p id="title">Catalog</p>
     <hr>
     <div>
-        <form class="form-insert">
+        <form action="/homepage/search" method="get" class="form-insert">
             <input class="input-search" type="text" name="search" placeholder="I want to buy..">
-            <button class="searchbutton">Search</button>
+            <input type="submit" value="Search">
+            {{--            <button class="searchbutton">Search</button>--}}
         </form>
     </div>
 
@@ -16,7 +17,7 @@
         @foreach($flowers as $flower)
             <div class="cards">
                 <div class="image">
-                    <img src="{{'storage/flowerimages/'.$flower->flower_image}}">
+                    <img src="{{ asset('storage/flowerimages/'.$flower->flower_image)}}">
                 </div>
 
                 <div class="namedes">
