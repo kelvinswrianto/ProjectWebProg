@@ -36,7 +36,6 @@ Route::group(['middleware' => ['web','auth']], function (){ //semua route yg pak
     }); //ini contoh, sesuaikan punya kalian
 });
 
-
 Route::get('admin/layout', 'FlowerTypeController@create');
 Route::post('admin/layout', 'FlowerTypeController@store');
 

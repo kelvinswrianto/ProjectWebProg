@@ -13,6 +13,7 @@ class CreateCouriersTable extends Migration
      */
     public function up()
     {
+        Schema::dropIfExists('couriers');
         Schema::create('couriers', function (Blueprint $table){
             $table->bigIncrements('id');
             $table->string('courier_name');

@@ -438,8 +438,8 @@
     <div class="leftheader">
         <a href="#default" class="logo">Online Florist</a>
         <a href="#home" class="menu">Profile</a>
-        {{Session::forget("login")}}
-        {{Session::get("login")}}
+{{--        {{Session::forget("login")}}--}}
+{{--        {{Session::get("login")}}--}}
         @if(Session::get("login") == 1)
             @if(Session::get("role") == "admin")
                 <div class="dropdown">

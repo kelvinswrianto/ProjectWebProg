@@ -68,11 +68,11 @@ class RegisterController extends Controller
                 Session::put('login',1);
                 if($remember){
                     //dd($remember);
-                    return redirect('register')->withCookie(cookie('cookie', $email,60));
+                    return redirect('homepage')->withCookie(cookie('cookie', $email,60));
                 }
                 else{
                     //dd($remember);
-                    return redirect('register'); //ini d ubah ntar
+                    return redirect('homepage'); //ini d ubah ntar
                 }
             }
             else{
