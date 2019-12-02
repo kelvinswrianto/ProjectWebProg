@@ -67,6 +67,7 @@
             border-radius: 4px;
         }
 
+
         /* Links inside the dropdown */
         .dropdown-content a {
             float: none;
@@ -102,10 +103,6 @@
         .rightheader{
             float: right;
         }
-        .rightheader div{
-            display: inline-block;
-        }
-
         .messagealert, .messagealertdanger{
             padding-top: 10px;
         }
@@ -465,6 +462,7 @@
             @endif
         @endif
     </div>
+
     <div class="rightheader">
         @if(Session::get("login") == 1)
             <div class="datediv"><p id="date"></p></div>
