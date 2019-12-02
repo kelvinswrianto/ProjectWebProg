@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Cart;
+use App\dataFlower;
 use App\User;
 use Faker\Provider\Uuid;
 use Illuminate\Http\Request;
@@ -66,6 +68,7 @@ class RegisterController extends Controller
                 Session::put('email',$user->emailregister);
                 Session::put('role',$user->role);
                 Session::put('login',1);
+                Session::put('user_id',$user->id);
                 if($remember){
                     //dd($remember);
                     return redirect('homepage')->withCookie(cookie('cookie', $email,60));
@@ -82,5 +85,36 @@ class RegisterController extends Controller
         else{
             return redirect('login')->with('alert','Wrong Password or Email, or you haven\'t registered yet !');
         }
+    }
+
+    public function order($id){
+        $orders = dataFlower::find($id);
+
+        $order = DB::table('carts')->where('id_order', $id)->first();
+        if($order) {
+            $affected = DB::table('carts')
+                ->where('id_order', $id)
+                ->update([
+                    'id_order' => $id,
+                    'user_id' => Session::get('user_id'),
+                    'quantity' => $order->quantity + 1,
+                    'price' => $orders->price*($order->quantity+1),
+                    'flower_name' => $orders->name,
+                    'flower_image' => $orders->flower_image
+                ]);
+        }
+        else{
+            $order = new Cart();
+            $order->id_order = $id;
+            $order->user_id = Session::get('user_id');
+            $order->quantity = $order->quantity + 1;
+            $order->price = $orders->price*$order->quantity;
+            $order->flower_name = $orders->name;
+            $order->flower_image = $orders->flower_image;
+            //dd($order);
+            $order->save();
+        }
+
+        return redirect()->back()->with('alert-success','Flower added to cart !');
     }
 }

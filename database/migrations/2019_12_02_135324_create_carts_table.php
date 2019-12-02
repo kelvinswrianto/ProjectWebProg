@@ -15,6 +15,12 @@ class CreateCartsTable extends Migration
     {
         Schema::create('carts', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->BigInteger('id_order');
+            $table->BigInteger('user_id');
+            $table->String('flower_image')->nullable();
+            $table->String('flower_name');
+            $table->BigInteger('quantity')->default(0);
+            $table->BigInteger('price');
             $table->timestamps();
         });
     }

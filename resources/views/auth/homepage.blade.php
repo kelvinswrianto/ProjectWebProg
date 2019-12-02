@@ -3,6 +3,20 @@
 @section('title', 'Home Page')
 
 @section('contents')
+    @if(\Session::has('alert'))
+        <div class="messagealertdanger">
+            <div class="alert-danger">
+                <div>{{Session::get('alert')}}</div>
+            </div>
+        </div>
+    @endif
+    @if(\Session::has('alert-success'))
+        <div class="messagealert">
+            <div class="alert-success" role="alert">
+                <div>{{Session::get('alert-success')}}</div>
+            </div>
+        </div>
+    @endif
     <p id="title">Catalog</p>
     <hr>
     <div>
@@ -35,7 +49,7 @@
                         <input type="submit" value="Details">
                     </form>
 
-                    <form class="d1" action="/flowers/{{$flower->id}}/order" method="post" enctype="multipart/form-data">
+                    <form class="d1" action="/flowers/{{$flower->id}}/order" method="get" enctype="multipart/form-data">
                         <input type="submit" value="Order">
                     </form>
                 </div>

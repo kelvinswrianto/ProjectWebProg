@@ -29,8 +29,13 @@ class HomeController extends Controller
             ->orWhere('description', 'like', '%'.$key.'%')
             ->paginate(10);
 
-        return view('auth.homepage',
-            compact('flowers')
-        );
+        if (!$flowers->isEmpty()){
+            return view('auth.homepage',
+                compact('flowers')
+            );
+        }
+        else {
+            return redirect('homepage')->with('alert','Flower Not Found, take a look another beautiful flowers :)');
+        }
     }
 }

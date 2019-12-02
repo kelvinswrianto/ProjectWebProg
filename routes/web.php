@@ -20,6 +20,8 @@ Route::get('/', 'RegisterController@login')->name('login');
 Route::get('/admin', function () {
     return view('admin.insert_type');
 });
+Route::get('/flowers/{id}', 'HomeController@detail');
+Route::get('/flowers/{id}/order', 'RegisterController@order');
 Route::get('/logout', 'HomeController@logout');
 Route::get('/homepage/search', 'HomeController@search');
 Route::get('/login', 'RegisterController@login');

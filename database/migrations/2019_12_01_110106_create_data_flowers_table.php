@@ -17,6 +17,8 @@ class CreateDataFlowersTable extends Migration
             $table->bigIncrements('id');
             $table->String('flower_image')->nullable();
             $table->Text('description');
+            $table->BigInteger('stock');
+            $table->BigInteger('price');
             $table->String('name');
             $table->timestamps();
         });
