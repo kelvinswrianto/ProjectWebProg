@@ -21,3 +21,7 @@ Route::get('/layout', function () {
 });
 Route::put('/courier/{id}', 'CourierController@update');
 Route::get('/courier/{id}/edit', 'CourierController@edit');
+Route::get('/admin/insert_type', 'FlowerTypeController@create');
+Route::post('/admin/insert_type', 'FlowerTypeController@store');
+Route::get('/admin/insert', 'InsertFlowerController@index');
+
