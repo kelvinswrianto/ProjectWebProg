@@ -20,8 +20,9 @@ class CreateFlowersTable extends Migration
             $table->integer('flower_price');
             $table->integer('flower_stock');
             $table->string('flower_type');
-            $table->string('flower_description');
+            $table->text('flower_description');
             $table->string('flower_image');
+
         });
     }
 

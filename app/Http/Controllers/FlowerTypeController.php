@@ -25,7 +25,7 @@ class FlowerTypeController extends Controller
     public function create()
     {
         //
-        return view('admin.insert_type');
+        return view('admin.insert_flower_type');
     }
 
     /**
@@ -37,7 +37,7 @@ class FlowerTypeController extends Controller
     public function store(Request $request)
     {
         $type = new FlowerType();
-        $type->flower_types = $request->flower_type;
+        $type->flower_type = $request->flower_type;
         $type->save();
         return redirect()->back();
     }

@@ -15,13 +15,15 @@ Route::get('/', function () {
 
     return view('welcome');
 });
-
+Route::get('/admin/layout', 'FlowerController@create');
+Route::post('/admin/layout', 'FlowerController@store');
 Route::get('/layout', function () {
     return view('admin.insert_type');
 });
+
 Route::put('/courier/{id}', 'CourierController@update');
 Route::get('/courier/{id}/edit', 'CourierController@edit');
 Route::get('/admin/insert_type', 'FlowerTypeController@create');
 Route::post('/admin/insert_type', 'FlowerTypeController@store');
-Route::get('/admin/insert', 'InsertFlowerController@index');
+
 
