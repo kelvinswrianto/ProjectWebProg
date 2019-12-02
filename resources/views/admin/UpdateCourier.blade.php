@@ -21,7 +21,7 @@
                 </tr>
                 <tr>
                     <td><span>Shipping Cost</span></td>
-                    <td><input type="number" name="courier_price" value="{{$courier->courier_price}}"></td>
+                    <td><input type="text" name="courier_price" value="{{$courier->courier_price}}"></td>
                     {{$errors->first('courier_price')}}
                 </tr>
             </table>

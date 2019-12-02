@@ -47,7 +47,7 @@ class RegisterController extends Controller
 
         $product_image = $request->file('product_image');
         $image_name = Uuid::uuid().'.'.$product_image->getClientOriginalExtension();
-        $dest = storage_path('app/public/images');
+        $dest = storage_path('storage/app/public/images');
         $product_image->move($dest, $image_name);
         $user->product_image = $image_name;
         $user->save();
@@ -64,6 +64,9 @@ class RegisterController extends Controller
         //dd($password);
         if($user){
             if(Hash::check($password,$user->passregister)){
+                Session::put('id',$user->id);
+                Session::put('address', $user->address);
+                Session::put('phone',$user->phoneregister);
                 Session::put('username',$user->nameregister);
                 Session::put('email',$user->emailregister);
                 Session::put('role',$user->role);
