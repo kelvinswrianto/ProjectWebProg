@@ -3,13 +3,14 @@
 @section('title', 'Home Page')
 
 <style>
-    .topcard{
+    .topcard {
         height: 50%;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
     }
-    .bottomcard{
+
+    .bottomcard {
         height: 50%;
         display: flex;
         flex-direction: column;
@@ -18,12 +19,27 @@
 </style>
 
 @section('contents')
+    @if(\Session::has('alert'))
+        <div class="messagealertdanger">
+            <div class="alert-danger">
+                <div>{{Session::get('alert')}}</div>
+            </div>
+        </div>
+    @endif
+    @if(\Session::has('alert-success'))
+        <div class="messagealert">
+            <div class="alert-success" role="alert">
+                <div>{{Session::get('alert-success')}}</div>
+            </div>
+        </div>
+    @endif
     <p id="title">Catalog</p>
     <hr>
     <div>
-        <form class="form-insert">
+        <form action="/homepage/search" method="get" class="form-insert">
             <input class="input-search" type="text" name="search" placeholder="I want to buy..">
-            <button class="searchbutton">Search</button>
+            <input type="submit" value="Search">
+            {{--            <button class="searchbutton">Search</button>--}}
         </form>
     </div>
 
@@ -34,6 +50,7 @@
                     <div class="image">
                         <img src="{{'storage/flowerimages/'.$flower->flower_image}}">
                     </div>
+
                     <div class="name">
                         <p>{{$flower->name}}</p>
                     </div>
@@ -44,18 +61,17 @@
                             <p>{{$flower->description}}</p>
                         </div>
                     </div>
-
                     <div class="detailorder">
                         <form class="d1" action="/flowers/{{$flower->id}}" method="get">
                             <input type="submit" value="Details">
                         </form>
 
-                        <form class="d1" action="/flowers/{{$flower->id}}/order" method="post" enctype="multipart/form-data">
+                        <form class="d1" action="/flowers/{{$flower->id}}/order" method="get"
+                              enctype="multipart/form-data">
                             <input type="submit" value="Order">
                         </form>
                     </div>
                 </div>
-
             </div>
         @endforeach
     </div>

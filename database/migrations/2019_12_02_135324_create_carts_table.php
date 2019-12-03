@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDataFlowersTable extends Migration
+class CreateCartsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,14 @@ class CreateDataFlowersTable extends Migration
      */
     public function up()
     {
-        Schema::create('data_flowers', function (Blueprint $table) {
+        Schema::create('carts', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->BigInteger('id_order');
+            $table->BigInteger('user_id');
             $table->String('flower_image')->nullable();
-            $table->Text('description');
-            $table->BigInteger('stock');
+            $table->String('flower_name');
+            $table->BigInteger('quantity')->default(0);
             $table->BigInteger('price');
-            $table->String('name');
             $table->timestamps();
         });
     }
@@ -31,6 +32,6 @@ class CreateDataFlowersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('data_flowers');
+        Schema::dropIfExists('carts');
     }
 }

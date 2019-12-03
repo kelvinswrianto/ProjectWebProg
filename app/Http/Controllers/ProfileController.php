@@ -5,40 +5,48 @@ namespace App\Http\Controllers;
 use App\User;
 use Faker\Provider\Uuid;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class ProfileController extends Controller
 {
     //
-    public function update(Request $request, $id){
+    public function update(Request $request){
         $rules = [
             'nameregister' => 'required|string',
-            'emailregister' => 'required|email|unique',
-            'phoneregister' => 'required|integer|min:8|max:12',
+            'emailregister' => 'email|unique:users',
+            'phoneregister' => 'required|numeric|digits_between:8,12',
             'gender' => 'required|in:male,female',
             'address' => 'required|min:10',
             'product_image' => 'required|mimes:jpg,jpeg,png'
         ];
         $this->validate($request, $rules);
 
+        $id = Session::get('id');
         $profile = User::find($id);
+
         $profile->nameregister = $request->nameregister;
         $profile->emailregister = $request->emailregister;
-        $profile->phoneregister = $request->phonregister;
+        $profile->phoneregister = $request->phoneregister;
         $profile->gender = $request->gender;
         $profile->address = $request->address;
 
-        $profile_image = $request->file('product_image')
+        $profile_image = $request->file('product_image');
         $image_name = Uuid::uuid().'.'.$profile_image->getClientOriginalExtension();
-        $dest = storage_path('app/public/images');
+        $dest = storage_path('storage/app/public/images');
         $profile_image->move($dest, $image_name);
         $profile->product_image = $image_name;
+
+        Session::put('address', $profile->address);
+        Session::put('phone',$profile->phoneregister);
+        Session::put('username',$profile->nameregister);
+        Session::put('email',$profile->emailregister);
 
         $profile->save();
         return redirect()->back();
     }
-    public function edit($id)
+    public function edit()
     {
-        $courier = User::find($id);
+        $profile = User::find(Session::get('id'));
         return view('updateProfile', compact('profile'));
     }
 }
