@@ -133,7 +133,7 @@
             <h2>{{$detail->flower_name}}</h2>
             <p class="text">{{$detail->flower_description}}</p>
 
-            <form action="/flowers/{{$detail->id}}/order" method="get"
+            <form action="/flowers/{{$detail->id}}/orderdetail" method="get"
                   enctype="multipart/form-data">
                 <div class="align">
                     <div class="contentdata">

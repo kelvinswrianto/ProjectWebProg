@@ -22,6 +22,7 @@ Route::get('/admin', function () {
 });
 
 Route::get('/flowers/{id}', 'FlowerDetailsController@detail');
+Route::get('/flowers/{id}/orderdetail', 'FlowerDetailsController@orderdetail');
 Route::get('/flowers/{id}/order', 'RegisterController@order');
 Route::get('/logout', 'HomeController@logout');
 Route::get('/homepage/search', 'HomeController@search');

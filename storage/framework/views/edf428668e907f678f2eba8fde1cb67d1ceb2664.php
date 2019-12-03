@@ -132,7 +132,7 @@
             <h2><?php echo e($detail->flower_name); ?></h2>
             <p class="text"><?php echo e($detail->flower_description); ?></p>
 
-            <form action="/flowers/<?php echo e($detail->id); ?>/order" method="get"
+            <form action="/flowers/<?php echo e($detail->id); ?>/orderdetail" method="get"
                   enctype="multipart/form-data">
                 <div class="align">
                     <div class="contentdata">
