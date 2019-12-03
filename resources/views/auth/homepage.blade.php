@@ -22,6 +22,7 @@
         flex-direction: row;
         flex-flow: wrap;
         justify-content: center;
+        margin-bottom: 50px;
     }
 
     .card {
@@ -39,6 +40,7 @@
         margin-right: 20px;
         margin-left: 20px;
         margin-top: 50px;
+        box-shadow: 5px 6px 10px black;
     }
 
     .image img {
@@ -123,7 +125,8 @@
         padding-left: 10px;
         max-height: 100px;
         overflow: auto;
-        padding-top: 15px;
+        margin-top: 15px;
+        padding-right: 5px;
     }
 </style>
 

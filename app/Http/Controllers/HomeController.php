@@ -36,7 +36,7 @@ class HomeController extends Controller
             );
         }
         else {
-            return redirect('homepage')->with('alert','Flower Not Found, take a look another beautiful flowers :)');
+            return redirect('homepage')->with('alert','Flower Not Found, kindly check out another flowers :)');
         }
     }
 }

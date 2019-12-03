@@ -185,40 +185,6 @@
             font-family: "Sitka Banner", serif;
         }
 
-        .pagination li{
-            display: inline;
-            color: black;
-            float: left;
-            padding: 8px 16px;
-            text-decoration: none;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            margin-top: 20px;
-            margin-bottom: 30px;
-        }
-
-        .pagination a{
-            text-decoration: none;
-        }
-
-        .pagination li.active {
-            background-color: #F37A71;
-            color: white;
-            border: 1px solid #F37A71;
-        }
-
-        .pagination li:hover:not(.active) {background-color: #ddd;}
-
-        .pagination li:first-child {
-            border-top-left-radius: 5px;
-            border-bottom-left-radius: 5px;
-        }
-
-        .pagination li:last-child {
-            border-top-right-radius: 5px;
-            border-bottom-right-radius: 5px;
-        }
-
         .rem{
             max-width: 500px;
             padding: 10px 0px 0px 142px;
@@ -280,39 +246,6 @@
 
         .namedes{
             padding-top: 15px;
-        }
-
-        .cardd{
-            display: flex;
-            flex-direction: row;
-            flex-flow: wrap;
-            margin-bottom: 50px;
-            justify-content: space-around;
-        }
-
-        .cards{
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            max-width: 233px;
-            height: 370px;
-            background-color: #ffffff;
-            border-radius: 10px;
-            border-color: #F37A71;
-            border-style: solid;
-            margin-left: 20px;
-            margin-top: 50px;
-            box-shadow: 1px 1px 10px black;
-
-        }
-
-        .image img{
-            padding-top: 9px;
-            width: 92%;
-            height: 150px;
-            max-height: 150px;
-            padding-left: 9px;
-            border-radius: 20px;
         }
 
         .detailorder .d1{
@@ -447,7 +380,6 @@
             color: #F37A71;
         }
 
-
     </style>
 </head>
 <body>
@@ -490,7 +422,7 @@
                 @if(Session::get("role") == "admin")
                     <div class="dropdown">
                         <button href="#contact" class="menu dropbtn">
-                            admin
+                            Admin
                             <i class="arrow down"></i>
                         </button>
                         <div class="dropdown-content">
