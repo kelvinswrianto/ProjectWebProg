@@ -92,6 +92,15 @@ class RegisterController extends Controller
     }
 
     public function order(Request $request, $id){
+        $messages = [
+            'required' => 'Quantity should be at least 1 to be added to cart',
+            'min' => 'Quantity should be at least 1 to be added to cart',
+        ];
+
+        $this->validate($request,[
+            'flower_stock' => 'required|numeric|min:1',
+        ]);
+
         $orders = Flower::find($id);
 
         $order = DB::table('carts')->where('id_order', $id)->first();

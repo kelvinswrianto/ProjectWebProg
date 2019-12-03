@@ -140,6 +140,7 @@
             color: #228B22;
             font-weight: bold;
             padding-top: 22px;
+            margin-top: 10px;
             border-style: solid;
             border-color: #38c172;
             border-radius: 10px;
@@ -155,9 +156,44 @@
             color: #e3342f;
             font-weight: bold;
             padding-top: 22px;
+            margin-top: 10px;
             border-style: solid;
             border-color: #e3342f;
             border-radius: 10px;
+        }
+
+        .closebtn {
+            margin-top: 3px;
+            margin-right: 20px;
+            color: #e3342f;
+            font-weight: bold;
+            float: right;
+            font-size: 22px;
+            line-height: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .closebtn:hover {
+            font-size: 40px;
+            margin-top: 1px;
+        }
+
+        .closebtns {
+            margin-top: 3px;
+            margin-right: 20px;
+            color: #228B22;
+            font-weight: bold;
+            float: right;
+            font-size: 22px;
+            line-height: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .closebtns:hover {
+            font-size: 40px;
+            margin-top: 1px;
         }
 
         .insertbtn{

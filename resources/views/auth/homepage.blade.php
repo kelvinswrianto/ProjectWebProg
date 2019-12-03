@@ -133,17 +133,15 @@
 
 @section('contents')
     @if(\Session::has('alert'))
-        <div class="messagealertdanger">
-            <div class="alert-danger">
-                <div>{{Session::get('alert')}}</div>
-            </div>
+        <div class="alert-danger">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+            <div>{{Session::get('alert')}}</div>
         </div>
     @endif
     @if(\Session::has('alert-success'))
-        <div class="messagealert">
-            <div class="alert-success" role="alert">
-                <div>{{Session::get('alert-success')}}</div>
-            </div>
+        <div class="alert-success">
+            <span class="closebtns" onclick="this.parentElement.style.display='none';">&times;</span>
+            <div>{{Session::get('alert-success')}}</div>
         </div>
     @endif
     <p id="title">Catalog</p>
@@ -162,7 +160,6 @@
                 <div class="topcard">
                     <div class="image">
                         <img src="{{ asset('storage/images/'.$flower->flower_image)}}" alt="flower image">
-
                     </div>
                     <div class="name">
                         <p>{{$flower->flower_name}}</p>

@@ -107,6 +107,12 @@
 
 </style>
 @section('contents')
+    @if(count($errors))
+        <div class="alert-danger">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+            Quantity should be <strong>at least 1</strong> to be added to cart
+        </div>
+    @endif
     @if(\Session::has('alert-success'))
         <div class="messagealert">
             <div class="alert-success" role="alert">
@@ -133,12 +139,12 @@
                     <div class="contentdata">
                         <div class="leftcontent">
                             <label for="flower_stock">stock : {{$detail->flower_stock}}</label>
-                            <input type="number" name="flower_stock" min="1" value="1"/>
+                            <input type="number" name="flower_stock"/>
                         </div>
 
                         <div class="rightcontent">
                             <p class="rcp">Rp.{{$detail->flower_price}}</p>
-                                <div class="addcart"><input type="submit" value="Add to cart" /></div>
+                            <input type="submit" value="Add to cart" class="addcart"/>
                         </div>
                     </div>
                 </div>

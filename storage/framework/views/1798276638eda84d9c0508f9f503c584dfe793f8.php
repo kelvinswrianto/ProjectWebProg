@@ -131,17 +131,15 @@
 
 <?php $__env->startSection('contents'); ?>
     <?php if(\Session::has('alert')): ?>
-        <div class="messagealertdanger">
-            <div class="alert-danger">
-                <div><?php echo e(Session::get('alert')); ?></div>
-            </div>
+        <div class="alert-danger">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+            <div><?php echo e(Session::get('alert')); ?></div>
         </div>
     <?php endif; ?>
     <?php if(\Session::has('alert-success')): ?>
-        <div class="messagealert">
-            <div class="alert-success" role="alert">
-                <div><?php echo e(Session::get('alert-success')); ?></div>
-            </div>
+        <div class="alert-success">
+            <span class="closebtns" onclick="this.parentElement.style.display='none';">&times;</span>
+            <div><?php echo e(Session::get('alert-success')); ?></div>
         </div>
     <?php endif; ?>
     <p id="title">Catalog</p>
@@ -160,7 +158,6 @@
                 <div class="topcard">
                     <div class="image">
                         <img src="<?php echo e(asset('storage/images/'.$flower->flower_image)); ?>" alt="flower image">
-
                     </div>
                     <div class="name">
                         <p><?php echo e($flower->flower_name); ?></p>
