@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\dataFlower;
+use App\Flower;
 use App\Score;
 use App\User;
 use Illuminate\Http\Request;
@@ -17,16 +18,16 @@ class HomeController extends Controller
     }
 
     public function index(){
-        $flowers = dataFlower::paginate(10);
+        $flowers = Flower::paginate(10);
         return view('auth.homepage', compact('flowers'));
     }
 
     public function search(Request $request){
         $key = $request->search;
 
-        $flowers = DB::table('data_flowers')
-            ->where('name','like','%'.$key.'%')
-            ->orWhere('description', 'like', '%'.$key.'%')
+        $flowers = DB::table('flowers')
+            ->where('flower_name','like','%'.$key.'%')
+            ->orWhere('flower_description', 'like', '%'.$key.'%')
             ->paginate(10);
 
         if (!$flowers->isEmpty()){

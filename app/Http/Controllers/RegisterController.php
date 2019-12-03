@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Cart;
 use App\dataFlower;
+use App\Flower;
 use App\User;
 use Faker\Provider\Uuid;
 use Illuminate\Http\Request;
@@ -91,7 +92,7 @@ class RegisterController extends Controller
     }
 
     public function order($id){
-        $orders = dataFlower::find($id);
+        $orders = Flower::find($id);
 
         $order = DB::table('carts')->where('id_order', $id)->first();
         if($order) {
@@ -101,8 +102,8 @@ class RegisterController extends Controller
                     'id_order' => $id,
                     'user_id' => Session::get('user_id'),
                     'quantity' => $order->quantity + 1,
-                    'price' => $orders->price*($order->quantity+1),
-                    'flower_name' => $orders->name,
+                    'price' => $orders->flower_price*($order->quantity+1),
+                    'flower_name' => $orders->flower_name,
                     'flower_image' => $orders->flower_image
                 ]);
         }
@@ -111,8 +112,8 @@ class RegisterController extends Controller
             $order->id_order = $id;
             $order->user_id = Session::get('user_id');
             $order->quantity = $order->quantity + 1;
-            $order->price = $orders->price*$order->quantity;
-            $order->flower_name = $orders->name;
+            $order->price = $orders->flower_price*$order->quantity;
+            $order->flower_name = $orders->flower_name;
             $order->flower_image = $orders->flower_image;
             //dd($order);
             $order->save();
