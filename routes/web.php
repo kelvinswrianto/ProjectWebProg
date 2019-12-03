@@ -30,10 +30,6 @@ Route::post('/registerPost', 'RegisterController@store');
 Route::post('/loginPost', 'RegisterController@loginPost');
 Route::put('/courier/{id}', 'CourierController@update');
 Route::get('/courier/{id}/edit', 'CourierController@edit');
-<<<<<<< HEAD
-=======
-
->>>>>>> 2200442a0e49d5cbb9dff138d0ab238c84d5b2ce
 Route::get('admin/layout', 'FlowerTypeController@create');
 Route::post('admin/layout', 'FlowerTypeController@store');
 

@@ -756,3 +756,36 @@
 #49 D:\\Kuliah\\Semester 5\\Web Programming\\PROJECT LAB\\LARAVEL\\ProjectWebProg\\ProjectWebProg\\server.php(21): require_once('D:\\\\Kuliah\\\\Semes...')
 #50 {main}
 "} 
+[2019-12-03 11:52:14] local.ERROR: syntax error, unexpected '<<' (T_SL), expecting end of file {"exception":"[object] (Symfony\\Component\\Debug\\Exception\\FatalThrowableError(code: 0): syntax error, unexpected '<<' (T_SL), expecting end of file at D:\\Kuliah\\Semester 5\\Web Programming\\PROJECT LAB\\LARAVEL\\ProjectWebProg\\ProjectWebProg\outes\\web.php:33)
+[stacktrace]
+#0 D:\\Kuliah\\Semester 5\\Web Programming\\PROJECT LAB\\LARAVEL\\ProjectWebProg\\ProjectWebProg\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(427): Illuminate\\Routing\\RouteFileRegistrar->register('D:\\\\Kuliah\\\\Semes...')
+#1 D:\\Kuliah\\Semester 5\\Web Programming\\PROJECT LAB\\LARAVEL\\ProjectWebProg\\ProjectWebProg\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(385): Illuminate\\Routing\\Router->loadRoutes('D:\\\\Kuliah\\\\Semes...')
+#2 D:\\Kuliah\\Semester 5\\Web Programming\\PROJECT LAB\\LARAVEL\\ProjectWebProg\\ProjectWebProg\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RouteRegistrar.php(121): Illuminate\\Routing\\Router->group(Array, 'D:\\\\Kuliah\\\\Semes...')
+#3 D:\\Kuliah\\Semester 5\\Web Programming\\PROJECT LAB\\LARAVEL\\ProjectWebProg\\ProjectWebProg\\app\\Providers\\RouteServiceProvider.php(56): Illuminate\\Routing\\RouteRegistrar->group('D:\\\\Kuliah\\\\Semes...')
+#4 D:\\Kuliah\\Semester 5\\Web Programming\\PROJECT LAB\\LARAVEL\\ProjectWebProg\\ProjectWebProg\\app\\Providers\\RouteServiceProvider.php(40): App\\Providers\\RouteServiceProvider->mapWebRoutes()
+#5 [internal function]: App\\Providers\\RouteServiceProvider->map()
+#6 D:\\Kuliah\\Semester 5\\Web Programming\\PROJECT LAB\\LARAVEL\\ProjectWebProg\\ProjectWebProg\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(32): call_user_func_array(Array, Array)
+#7 D:\\Kuliah\\Semester 5\\Web Programming\\PROJECT LAB\\LARAVEL\\ProjectWebProg\\ProjectWebProg\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(34): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#8 D:\\Kuliah\\Semester 5\\Web Programming\\PROJECT LAB\\LARAVEL\\ProjectWebProg\\ProjectWebProg\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(90): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#9 D:\\Kuliah\\Semester 5\\Web Programming\\PROJECT LAB\\LARAVEL\\ProjectWebProg\\ProjectWebProg\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(34): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#10 D:\\Kuliah\\Semester 5\\Web Programming\\PROJECT LAB\\LARAVEL\\ProjectWebProg\\ProjectWebProg\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(590): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#11 D:\\Kuliah\\Semester 5\\Web Programming\\PROJECT LAB\\LARAVEL\\ProjectWebProg\\ProjectWebProg\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider.php(87): Illuminate\\Container\\Container->call(Array)
+#12 D:\\Kuliah\\Semester 5\\Web Programming\\PROJECT LAB\\LARAVEL\\ProjectWebProg\\ProjectWebProg\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider.php(36): Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider->loadRoutes()
+#13 D:\\Kuliah\\Semester 5\\Web Programming\\PROJECT LAB\\LARAVEL\\ProjectWebProg\\ProjectWebProg\\app\\Providers\\RouteServiceProvider.php(28): Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider->boot()
+#14 [internal function]: App\\Providers\\RouteServiceProvider->boot()
+#15 D:\\Kuliah\\Semester 5\\Web Programming\\PROJECT LAB\\LARAVEL\\ProjectWebProg\\ProjectWebProg\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(32): call_user_func_array(Array, Array)
+#16 D:\\Kuliah\\Semester 5\\Web Programming\\PROJECT LAB\\LARAVEL\\ProjectWebProg\\ProjectWebProg\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(34): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#17 D:\\Kuliah\\Semester 5\\Web Programming\\PROJECT LAB\\LARAVEL\\ProjectWebProg\\ProjectWebProg\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(90): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#18 D:\\Kuliah\\Semester 5\\Web Programming\\PROJECT LAB\\LARAVEL\\ProjectWebProg\\ProjectWebProg\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(34): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#19 D:\\Kuliah\\Semester 5\\Web Programming\\PROJECT LAB\\LARAVEL\\ProjectWebProg\\ProjectWebProg\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(590): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#20 D:\\Kuliah\\Semester 5\\Web Programming\\PROJECT LAB\\LARAVEL\\ProjectWebProg\\ProjectWebProg\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(828): Illuminate\\Container\\Container->call(Array)
+#21 D:\\Kuliah\\Semester 5\\Web Programming\\PROJECT LAB\\LARAVEL\\ProjectWebProg\\ProjectWebProg\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(811): Illuminate\\Foundation\\Application->bootProvider(Object(App\\Providers\\RouteServiceProvider))
+#22 [internal function]: Illuminate\\Foundation\\Application->Illuminate\\Foundation\\{closure}(Object(App\\Providers\\RouteServiceProvider), 22)
+#23 D:\\Kuliah\\Semester 5\\Web Programming\\PROJECT LAB\\LARAVEL\\ProjectWebProg\\ProjectWebProg\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(812): array_walk(Array, Object(Closure))
+#24 D:\\Kuliah\\Semester 5\\Web Programming\\PROJECT LAB\\LARAVEL\\ProjectWebProg\\ProjectWebProg\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\BootProviders.php(17): Illuminate\\Foundation\\Application->boot()
+#25 D:\\Kuliah\\Semester 5\\Web Programming\\PROJECT LAB\\LARAVEL\\ProjectWebProg\\ProjectWebProg\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(211): Illuminate\\Foundation\\Bootstrap\\BootProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#26 D:\\Kuliah\\Semester 5\\Web Programming\\PROJECT LAB\\LARAVEL\\ProjectWebProg\\ProjectWebProg\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(320): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#27 D:\\Kuliah\\Semester 5\\Web Programming\\PROJECT LAB\\LARAVEL\\ProjectWebProg\\ProjectWebProg\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(129): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#28 D:\\Kuliah\\Semester 5\\Web Programming\\PROJECT LAB\\LARAVEL\\ProjectWebProg\\ProjectWebProg\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#29 {main}
+"} 
