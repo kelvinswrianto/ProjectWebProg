@@ -30,26 +30,25 @@ Route::post('/registerPost', 'RegisterController@store');
 Route::post('/loginPost', 'RegisterController@loginPost');
 Route::put('/courier/{id}', 'CourierController@update');
 Route::get('/courier/{id}/edit', 'CourierController@edit');
-Route::group(['middleware' => ['web','auth']], function (){ //semua route yg pakai middleware masukin k sini
-    Route::get('/insert', function (){
-        if(Auth::user()->role == "user"){
-            return view('auth.homepage');
-        }
-        else{
-            return view('admin.insert');
-        }
-    }); //ini contoh, sesuaikan punya kalian
-});
 
 Route::get('admin/layout', 'FlowerTypeController@create');
 Route::post('admin/layout', 'FlowerTypeController@store');
 
-Route::get('/admin/flowers', 'FlowerController@index');
-Route::get('/admin/flowers/{id}/edit','FlowerController@edit');
-Route::post('/admin/flowers/{id}/update','FlowerController@update');
-Route::delete('/admin/flowers/{id}/delete', 'FlowerController@destroy');
-Route::get('/admin/flowers/insert', 'FlowerController@create');
-Route::post('/admin/flowers/insert', 'FlowerController@store');
+
+Route::get('/admin/flowers', 'FlowerController@index')->middleware('admin');
+Route::get('/admin/flowers/{id}/edit','FlowerController@edit')->middleware('admin');
+Route::post('/admin/flowers/{id}/update','FlowerController@update')->middleware('admin');
+Route::delete('/admin/flowers/{id}/delete', 'FlowerController@destroy')->middleware('admin');
+Route::get('/admin/flowers/insert', 'FlowerController@create')->middleware('admin');
+Route::post('/admin/flowers/insert', 'FlowerController@store')->middleware('admin');
+Route::get('/admin/flowers/type', 'FlowerTypeController@index')->middleware('admin');
+Route::get('/admin/flowers/type/{id}/edit','FlowerTypeController@edit')->middleware('admin');
+Route::post('/admin/flowers/type/{id}/update','FlowerTypeController@update')->middleware('admin');
+Route::delete('/admin/flowers/type/{id}/delete', 'FlowerTypeController@destroy')->middleware('admin');
+Route::get('/admin/flowers/search', 'FlowerController@search')->middleware('admin');
+Route::get('/admin/flowers/type/search', 'FlowerTypeController@search')->middleware('admin');
+Route::get('/admin/flowers/type/insert', 'FlowerTypeController@create')->middleware('admin');
+Route::post('/admin/flowers/type/insert', 'FlowerTypeController@store')->middleware('admin');
 
 Route::get('/profile/edit', 'ProfileController@edit');
 Route::put('/profile', 'ProfileController@update');

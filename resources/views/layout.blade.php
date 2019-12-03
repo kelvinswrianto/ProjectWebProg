@@ -59,10 +59,11 @@
 
         /* Dropdown content (hidden by default) */
         .dropdown-content {
+            padding: 2px;
             display: none;
             position: absolute;
             background-color: white;
-            min-width: 100px;
+            min-width: 150px;
             box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
             z-index: 1;
             border-radius: 4px;
@@ -71,22 +72,21 @@
 
         /* Links inside the dropdown */
         .dropdown-content a {
-             float: none;
-             color: #F37A71;
-             padding: 12px 16px;
-             text-decoration: none;
-             display: block;
-             text-align: center;
-             border-radius: 4px;
-         }
+            float: none;
+            color: #F37A71;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+            border-radius: 4px;
+        }
 
         .dropdown-content a:hover{
             float: none;
             color: #ffffff;
-            padding: 12px 16px;
             text-decoration: none;
             display: block;
-            text-align: center;
+            text-align: left;
             border-radius: 4px;
             background-color: #F37A71;
         }
@@ -396,7 +396,7 @@
 <body>
 <div class="header">
     <div class="leftheader">
-        <a href="#default" class="logo">Online Florist</a>
+        <a href="/homepage" class="logo">Online Florist</a>
         <a href="#home" class="menu">Profile</a>
 {{--        {{Session::forget("login")}}--}}
 {{--        {{Session::get("login")}}--}}
@@ -408,7 +408,9 @@
                         <i class="arrow down"></i>
                     </button>
                     <div class="dropdown-content">
-                        <a href="#">Manage Flower</a>
+                        <a href="/admin/flowers">Manage Flower</a>
+                        <a href="/admin/flowers/type">Manage Flower Type</a>
+                        <a href="">Manage Courier</a>
                     </div>
                 </div>
             @else
@@ -427,13 +429,12 @@
     </div>
 
     <div class="rightheader">
-
         @if(Session::get("login") == 1)
             <div class="datediv"><p id="date"></p></div>
             @if(Session::get("role") == "admin")
                 <div class="dropdown">
                     <button href="#contact" class="menu dropbtn">
-                        admin
+                        {{Session::get('username')}}
                         <i class="arrow down"></i>
                     </button>
                     <div class="dropdown-content">

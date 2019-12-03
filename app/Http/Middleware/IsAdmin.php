@@ -21,7 +21,7 @@ class IsAdmin
         $userss = Session::get("role");
         //dd($userss);
         if($userss == "user"){
-            return redirect('auth.homepage');
+            return redirect('homepage');
         }
         else {
             return $next($request);

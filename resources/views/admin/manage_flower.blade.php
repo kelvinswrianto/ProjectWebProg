@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('admin.layoutadmin')
 @section('title', "Manage Flowers")
 <style>
     .topcard {
@@ -79,10 +79,12 @@
     }
 
     #update {
+        border: solid #CBB956 1px;
         background-color: #CBB956;
     }
 
     #delete {
+        border: solid #bf5329 1px;
         background-color: #bf5329;
     }
 
@@ -139,18 +141,71 @@
         padding-left: 10px;
         max-height: 100px;
         overflow: auto;
-        padding-top: 15px;
+        margin-top: 15px;
     }
+
+    .alert {
+        font-size: 18px;
+        margin-top: 40px;
+        padding: 20px;
+        background-color: #f44336;
+        color: white;
+        border-radius: 7px;
+    }
+
+    .closebtn {
+        margin-left: 15px;
+        color: white;
+        font-weight: bold;
+        float: right;
+        font-size: 22px;
+        line-height: 20px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .closebtn:hover {
+        color: black;
+    }
+
 </style>
 
 @section('contents')
     <p id="title">Manage Flowers</p>
     <hr>
     <a href="/admin/flowers/insert" class="insertbtn">Insert Flower</a>
-    <form class="search" action="action_page.php">
+    <form class="search" action="/admin/flowers/search">
         <input type="text" placeholder="I want to find ..." name="search">
         <button type="submit">Search</button>
     </form>
+
+    @if(\Session::has('alert'))
+        <div class="alert">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+            <strong>Sorry, </strong> {{Session::get('alert')}} <strong> Try another keywords.</strong>
+        </div>
+    @endif
+
+    @if(\Session::has('alert-success'))
+        <div class="alert" style="background-color: #3490dc">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+            <strong>Nice! </strong> {{Session::get('alert-success')}}
+        </div>
+    @endif
+
+    @if(\Session::has('alert-update'))
+        <div class="alert" style="background-color: #3490dc">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+            <strong>Good job! </strong> {{Session::get('alert-update')}}
+        </div>
+    @endif
+
+    @if(\Session::has('alert-delete'))
+        <div class="alert" style="background-color: #3490dc">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+            <strong>Success! </strong> {{Session::get('alert-delete')}}
+        </div>
+    @endif
 
     <div class="cardview">
         @foreach($flowers as $flower)

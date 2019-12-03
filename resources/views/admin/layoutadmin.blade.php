@@ -14,13 +14,14 @@
         }
         /* Style the header with a grey background and some padding */
         .header {
+            display: flex;
             overflow: hidden;
             background-color: #F37A71;
-            padding: 0px 100px;
+            width: 100%;
         }
 
         /* Style the header links */
-        .header a, .rightheader div{
+        .header a, .rightheader .datediv{
             float: left;
             color: white;
             text-align: center;
@@ -38,8 +39,8 @@
 
         /* The dropdown container */
         .dropdown {
-            float: left;
-            overflow: hidden;
+            width: fit-content;
+            height: 0px;
         }
 
         /* Dropdown button */
@@ -49,21 +50,23 @@
             outline: none;
             color: white;
             padding: 10px 5px;
-            background-color: inherit;
+            background-color: #F37A71;
             border-radius: 4px;
             margin: 0px 10px;
         }
 
         /* Dropdown content (hidden by default) */
         .dropdown-content {
+            padding: 2px;
             display: none;
             position: absolute;
             background-color: white;
-            min-width: 100px;
+            min-width: 150px;
             box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
             z-index: 1;
             border-radius: 4px;
         }
+
 
         /* Links inside the dropdown */
         .dropdown-content a {
@@ -72,8 +75,18 @@
             padding: 12px 16px;
             text-decoration: none;
             display: block;
-            text-align: center;
+            text-align: left;
             border-radius: 4px;
+        }
+
+        .dropdown-content a:hover{
+            float: none;
+            color: #ffffff;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+            border-radius: 4px;
+            background-color: #F37A71;
         }
 
         /* Show the dropdown menu on hover */
@@ -98,10 +111,50 @@
             border-color: #F37A71;
         }
         .rightheader{
-            float: right;
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 100px;
+            width: 50%;
         }
-        .rightheader div{
-            display: inline-block;
+        .leftheader{
+            display: flex;
+            justify-content: flex-start;
+            width: 50%;
+            padding-left: 100px;
+        }
+
+        .messagealert, .messagealertdanger{
+            padding-top: 10px;
+        }
+
+        .alert-success{
+            display: block;
+            font-size: 20px;
+            background-color: aquamarine;
+            width: 500px;
+            height: 50px;
+            text-align: center;
+            color: #228B22;
+            font-weight: bold;
+            padding-top: 22px;
+            border-style: solid;
+            border-color: #38c172;
+            border-radius: 10px;
+        }
+
+        .alert-danger{
+            display: block;
+            font-size: 20px;
+            background-color: #ffb2b2;
+            width: 500px;
+            height: 50px;
+            text-align: center;
+            color: #e3342f;
+            font-weight: bold;
+            padding-top: 22px;
+            border-style: solid;
+            border-color: #e3342f;
+            border-radius: 10px;
         }
 
         .insertbtn{
@@ -127,17 +180,24 @@
             align-items: center;
         }
         .content hr{
-            margin: 20px;
+            margin-top: 10px;
+            margin-bottom: 10px;
             width: 80%;
             border: solid #F37A71 1px;
         }
         .content #title{
             margin-top: 20px;
-            font-size: 30px;
+            font-size: 50px;
             color: #F37A71;
         }
         #date{
             font-family: "Sitka Banner", serif;
+        }
+
+        .rem{
+            max-width: 500px;
+            padding: 10px 0px 0px 142px;
+            font: 13px Arial, Helvetica, sans-serif;
         }
 
         .form-insert{
@@ -150,7 +210,7 @@
             margin: 0px 0px 15px 0px;
         }
         .form-insert label > span{
-            width: 100px;
+            width: 116px;
             font-weight: bold;
             float: left;
             padding-top: 8px;
@@ -189,8 +249,51 @@
             font-size:16px;
         }
 
-        .form-insert input.input-field, .form-insert .select-field,{
+        .form-insert input.input-field, .form-insert .select-field{
             width: 48%;
+        }
+
+        .namedes{
+            padding-top: 15px;
+        }
+
+        .detailorder .d1{
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .detailorder{
+            display: flex;
+        }
+
+        .name{
+            padding-top: 10px;
+            font-size: 22px;
+            font-weight: bold;
+            padding-left: 10px;
+        }
+
+        .form-insert .input-search{
+            box-sizing: border-box;
+            border: 1px solid #C2C2C2;
+            box-shadow: 1px 1px 4px #EBEBEB;
+            border-radius: 7px;
+            padding: 7px;
+            width: 350px;
+            height: 37px;
+            outline: none;
+            margin-right: 15px;
+        }
+
+        .des{
+            padding-left: 10px;
+            max-height: 100px;
+            overflow: auto;
+        }
+
+        .buttonhome{
+            display: inline;
         }
 
         .form-insert input.input-field,
@@ -210,32 +313,56 @@
             border: 1px solid #F37A71;
         }
         .form-insert .textarea-field{
-            height:100px;
-            width: 55%;
+            height:135px;
+            width: 60%;
         }
+
         .form-insert input[type=submit],
+        .detailorder input[type=submit],
+        .form-insert button,
         .form-insert input[type=button]{
             border: solid #F37A71 1px;
-            padding: 8px 15px 8px 15px;
+            padding: 5px 15px 5px 15px;
             background: #F37A71;
             color: #fff;
+            font-size: 20px;
             box-shadow: 1px 1px 4px #DADADA;
-            border-radius: 3px;
+            border-radius: 6px;
             width: 100px;
+            margin-bottom: 10px;
         }
-        .form-insert input[type=submit]:hover{
+        .form-insert input[type=submit]:hover,
+        .form-insert button:hover,
+        .detailorder input[type=submit]:hover{
             background: white;
             color: #F37A71;
             border-color: #F37A71;
+            cursor: pointer;
         }
         input[type=number]::-webkit-inner-spin-button,
         input[type=number]::-webkit-outer-spin-button {
             opacity: 1;
         }
+
+        .radio-group{
+            padding-top: 13px;
+            font-family: "Helvetica";
+            font-size: 15px;
+        }
+
+        .forgot{
+            text-decoration: none;
+            font-size: 15px;
+            color: #3490dc;
+            padding-left: 152px;
+            padding-bottom: 15px;
+        }
+
         .submit{
             display: flex;
             justify-content: center;
         }
+
         form.search input[type=text] {
             padding: 5px;
             font-size: 17px;
@@ -266,7 +393,7 @@
 <body>
 <div class="header">
     <div class="leftheader">
-        <a href="#default" class="logo">Online Florist</a>
+        <a href="/homepage" class="logo">Online Florist</a>
         <a href="#home" class="menu">Profile</a>
         <div class="dropdown">
             <button href="#contact" class="menu dropbtn">
@@ -274,13 +401,24 @@
                 <i class="arrow down"></i>
             </button>
             <div class="dropdown-content">
-                <a href="#">Manage Flower</a>
+                <a href="/admin/flowers">Manage Flower</a>
+                <a href="/admin/flowers/type">Manage Flower Type</a>
+                <a href="">Manage Courier</a>
             </div>
         </div>
     </div>
     <div class="rightheader">
         <div class="datediv"><p id="date"></p></div>
-        <div class="loginstatus">ADMIN()</div>
+        <div class="dropdown">
+            <button href="#contact" class="menu dropbtn">
+                {{Session::get('username')}}
+                <i class="arrow down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="#">Profile</a>
+                <a href="{{url('/logout')}}">Logout</a>
+            </div>
+        </div>
     </div>
 </div>
 
