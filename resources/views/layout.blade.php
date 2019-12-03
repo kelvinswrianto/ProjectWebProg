@@ -279,16 +279,19 @@
         }
 
         .cards{
-            display: inline-block;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
             max-width: 233px;
             height: 370px;
             background-color: #ffffff;
             border-radius: 10px;
-            border-color: #e3342f;
+            border-color: #F37A71;
             border-style: solid;
             margin-left: 20px;
             margin-top: 50px;
-            box-shadow: 5px 5px 8px black;
+            box-shadow: 1px 1px 10px black;
+
         }
 
         .image img{
@@ -297,18 +300,21 @@
             height: 150px;
             max-height: 150px;
             padding-left: 9px;
+            border-radius: 20px;
         }
 
         .detailorder .d1{
-            display: inline-block;
-            padding-left: 10px;
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
         }
 
         .detailorder{
-            padding-top: 20px;
+            display: flex;
         }
 
         .name{
+            padding-top: 10px;
             font-size: 22px;
             font-weight: bold;
             padding-left: 10px;
@@ -329,7 +335,7 @@
         .des{
             padding-left: 10px;
             max-height: 100px;
-            overflow: hidden;
+            overflow: auto;
         }
 
         .buttonhome{
@@ -428,6 +434,8 @@
             background: white;
             color: #F37A71;
         }
+
+
     </style>
 </head>
 <body>

@@ -14,7 +14,7 @@ class CreateFlowersTable extends Migration
     public function up()
     {
         Schema::create('flowers', function (Blueprint $table) {
-            $table->bigIncrements('flower_id');
+            $table->bigIncrements('id');
             $table->timestamps();
             $table->string('flower_name');
             $table->integer('flower_price');

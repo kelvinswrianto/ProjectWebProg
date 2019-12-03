@@ -20,6 +20,7 @@ Route::get('/', 'RegisterController@login')->name('login');
 Route::get('/admin', function () {
     return view('admin.insert_type');
 });
+
 Route::get('/login', 'RegisterController@login');
 Route::post('/registerPost', 'RegisterController@store');
 Route::post('/loginPost', 'RegisterController@loginPost');
@@ -41,3 +42,10 @@ Route::post('admin/layout', 'FlowerTypeController@store');
 
 Route::get('/profile/{id}/edit', 'User@edit');
 Route::get('/profile/{id}', 'User@update');
+
+Route::get('/admin/flowers', 'FlowerController@index');
+Route::get('/admin/flowers/{id}/edit','FlowerController@edit');
+Route::post('/admin/flowers/{id}/update','FlowerController@update');
+Route::delete('/admin/flowers/{id}/delete', 'FlowerController@destroy');
+Route::get('/admin/flowers/insert', 'FlowerController@create');
+Route::post('/admin/flowers/insert', 'FlowerController@store');
