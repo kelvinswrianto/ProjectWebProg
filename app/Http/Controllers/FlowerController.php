@@ -11,34 +11,18 @@ use Illuminate\Support\Facades\DB;
 
 class FlowerController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $flowers = Flower::paginate(10);
         return view('admin.manage_flower', compact('flowers'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         $flower_types = FlowerType::all();
         return view('admin.insert_flower', compact('flower_types'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $rules = [
@@ -66,41 +50,34 @@ class FlowerController extends Controller
         // 4. Store nama image di DB
         $flower->flower_image = $image_name;
         $flower->save();
-        return redirect('/admin/flowers');
-    }
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+        return redirect('/admin/flowers')->with('alert-success', 'Flower added to database.');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    public function search(Request $request)
+    {
+        $key = $request->search;
+        $flowers = DB::table('flowers')
+            ->where('flower_name','like','%'.$key.'%')
+            ->orWhere('flower_description', 'like', '%'.$key.'%')
+            ->paginate(10);
+
+        if (!$flowers->isEmpty()){
+            return view('admin.manage_flower',
+                compact('flowers')
+            );
+        }
+        else {
+            return redirect('/admin/flowers')->with('alert','We can\'t seems to find the item you were looking for.');
+        }
+    }
+
     public function edit($id)
     {
-        //
         $flower = Flower::find($id);
-
         $flower_types = FlowerType::all();
         return view('admin.update_flower', compact('flower', 'flower_types'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         $rules = [
@@ -123,19 +100,13 @@ class FlowerController extends Controller
         $flower_image->move($dest, $image_name);
         $flower->flower_image = $image_name;
         $flower->save();
-        return redirect('/admin/flowers');
+        return redirect('/admin/flowers')->with('alert-update', 'Flower updated!');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         $flower = Flower::find($id);
         $flower->delete();
-        return redirect('/admin/flowers');
+        return redirect('/admin/flowers')->with('alert-delete', 'Your flower successfully deleted!');
     }
 }

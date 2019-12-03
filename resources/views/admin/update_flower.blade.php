@@ -5,6 +5,7 @@
 @section('contents')
     <p id="title">Update Flowers</p>
     <hr>
+
     <div class="form-insert">
         <form action="/admin/flowers/{{$flower->id}}/update" method="post" enctype="multipart/form-data">
             @csrf
