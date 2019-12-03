@@ -16,13 +16,14 @@
         }
         /* Style the header with a grey background and some padding */
         .header {
+            display: flex;
             overflow: hidden;
             background-color: #F37A71;
-            padding: 0px 100px;
+            width: 100%;
         }
 
         /* Style the header links */
-        .header a, .rightheader div{
+        .header a, .rightheader .datediv{
             float: left;
             color: white;
             text-align: center;
@@ -40,8 +41,8 @@
 
         /* The dropdown container */
         .dropdown {
-            float: left;
-            overflow: hidden;
+            width: fit-content;
+            height: 0px;
         }
 
         /* Dropdown button */
@@ -51,7 +52,7 @@
             outline: none;
             color: white;
             padding: 10px 5px;
-            background-color: inherit;
+            background-color: #F37A71;
             border-radius: 4px;
             margin: 0px 10px;
         }
@@ -112,8 +113,18 @@
             border-color: #F37A71;
         }
         .rightheader{
-            float: right;
+            display: flex;
+            justify-content: right;
+            width: 50%;
+            padding-right: 100px;
         }
+        .leftheader{
+            display: flex;
+            justify-content: left;
+            width: 50%;
+            padding-left: 100px;
+        }
+
         .messagealert, .messagealertdanger{
             padding-top: 10px;
         }
@@ -183,40 +194,6 @@
         }
         #date{
             font-family: "Sitka Banner", serif;
-        }
-
-        .pagination li{
-            display: inline;
-            color: black;
-            float: left;
-            padding: 8px 16px;
-            text-decoration: none;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            margin-top: 20px;
-            margin-bottom: 30px;
-        }
-
-        .pagination a{
-            text-decoration: none;
-        }
-
-        .pagination li.active {
-            background-color: #F37A71;
-            color: white;
-            border: 1px solid #F37A71;
-        }
-
-        .pagination li:hover:not(.active) {background-color: #ddd;}
-
-        .pagination li:first-child {
-            border-top-left-radius: 5px;
-            border-bottom-left-radius: 5px;
-        }
-
-        .pagination li:last-child {
-            border-top-right-radius: 5px;
-            border-bottom-right-radius: 5px;
         }
 
         .rem{
@@ -447,7 +424,10 @@
             color: #F37A71;
         }
 
-
+    .loginstatus{
+        display: flex;
+        height: 20px;
+    }
     </style>
 </head>
 <body>
@@ -484,33 +464,32 @@
     </div>
 
     <div class="rightheader">
+
         @if(Session::get("login") == 1)
             <div class="datediv"><p id="date"></p></div>
-            <div class="loginstatus">
-                @if(Session::get("role") == "admin")
-                    <div class="dropdown">
-                        <button href="#contact" class="menu dropbtn">
-                            admin
-                            <i class="arrow down"></i>
-                        </button>
-                        <div class="dropdown-content">
-                            <a href="#">Profile</a>
-                            <a href="{{url('/logout')}}">Logout</a>
-                        </div>
+            @if(Session::get("role") == "admin")
+                <div class="dropdown">
+                    <button href="#contact" class="menu dropbtn">
+                        admin
+                        <i class="arrow down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="#">Profile</a>
+                        <a href="{{url('/logout')}}">Logout</a>
                     </div>
-                @else
-                    <div class="dropdown">
-                        <button href="#contact" class="menu dropbtn">
-                            {{Session::get("username")}}
-                            <i class="arrow down"></i>
-                        </button>
-                        <div class="dropdown-content">
-                            <a href="#">Profile</a>
-                            <a href="{{url('/logout')}}">Logout</a>
-                        </div>
+                </div>
+            @else
+                <div class="dropdown">
+                    <button href="#contact" class="menu dropbtn">
+                        {{Session::get("username")}}
+                        <i class="arrow down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="#">Profile</a>
+                        <a href="{{url('/logout')}}">Logout</a>
                     </div>
-                @endif
-            </div>
+                </div>
+            @endif
         @else
             <a href='/login'>Login</a>
             <a href='/register'>Register</a>
