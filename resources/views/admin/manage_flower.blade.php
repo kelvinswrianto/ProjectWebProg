@@ -1,4 +1,4 @@
-@extends('admin.layoutadmin')
+@extends('layout')
 @section('title', "Manage Flowers")
 <style>
     .topcard {
@@ -20,6 +20,7 @@
         flex-direction: row;
         flex-flow: wrap;
         justify-content: center;
+        margin-bottom: 50px;
     }
 
     .card {
@@ -37,6 +38,7 @@
         margin-right: 20px;
         margin-left: 20px;
         margin-top: 50px;
+        box-shadow: 5px 6px 10px black;
     }
 
     .image img {

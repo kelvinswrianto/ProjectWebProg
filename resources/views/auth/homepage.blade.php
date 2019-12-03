@@ -40,7 +40,6 @@
         margin-right: 20px;
         margin-left: 20px;
         margin-top: 50px;
-
         box-shadow: 5px 6px 10px black;
     }
 
@@ -127,6 +126,8 @@
         padding-left: 10px;
         max-height: 100px;
         overflow: auto;
+        margin-top: 15px;
+        padding-right: 5px;
     }
 </style>
 

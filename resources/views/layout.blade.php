@@ -259,39 +259,6 @@
             padding-top: 15px;
         }
 
-        .cardd{
-            display: flex;
-            flex-direction: row;
-            flex-flow: wrap;
-            margin-bottom: 50px;
-            justify-content: space-around;
-        }
-
-        .cards{
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            max-width: 233px;
-            height: 370px;
-            background-color: #ffffff;
-            border-radius: 10px;
-            border-color: #F37A71;
-            border-style: solid;
-            margin-left: 20px;
-            margin-top: 50px;
-            box-shadow: 1px 1px 10px black;
-
-        }
-
-        .image img{
-            padding-top: 9px;
-            width: 92%;
-            height: 150px;
-            max-height: 150px;
-            padding-left: 9px;
-            border-radius: 20px;
-        }
-
         .detailorder .d1{
             width: 100%;
             display: flex;
@@ -424,10 +391,6 @@
             color: #F37A71;
         }
 
-    .loginstatus{
-        display: flex;
-        height: 20px;
-    }
     </style>
 </head>
 <body>
