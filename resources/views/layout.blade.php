@@ -114,13 +114,13 @@
         }
         .rightheader{
             display: flex;
-            justify-content: right;
+            justify-content: flex-end;
             width: 50%;
             padding-right: 100px;
         }
         .leftheader{
             display: flex;
-            justify-content: left;
+            justify-content: flex-start;
             width: 50%;
             padding-left: 100px;
         }
@@ -433,7 +433,7 @@
             @if(Session::get("role") == "admin")
                 <div class="dropdown">
                     <button href="#contact" class="menu dropbtn">
-                        admin
+                        Admin
                         <i class="arrow down"></i>
                     </button>
                     <div class="dropdown-content">
