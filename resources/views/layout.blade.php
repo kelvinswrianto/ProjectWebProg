@@ -117,6 +117,7 @@
             justify-content: flex-end;
             width: 50%;
             padding-right: 100px;
+            width: 50%;
         }
         .leftheader{
             display: flex;
