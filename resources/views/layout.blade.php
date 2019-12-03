@@ -114,13 +114,13 @@
         }
         .rightheader{
             display: flex;
-            justify-content: right;
-            width: 50%;
+            justify-content: flex-end;
             padding-right: 100px;
+            width: 50%;
         }
         .leftheader{
             display: flex;
-            justify-content: left;
+            justify-content: flex-start;
             width: 50%;
             padding-left: 100px;
         }
