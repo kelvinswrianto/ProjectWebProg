@@ -132,7 +132,7 @@
                     <div class="contentdata">
                         <div class="leftcontent">
                             <label for="flower_stock">stock : <?php echo e($detail->flower_stock); ?></label>
-                            <input type="number" name="flower_stock" value="1"/>
+                            <input type="number" name="flower_stock" min="1" value="1"/>
                         </div>
 
                         <div class="rightcontent">

@@ -3,6 +3,7 @@
 <?php $__env->startSection('contents'); ?>
     <p id="title">Update Flowers</p>
     <hr>
+
     <div class="form-insert">
         <form action="/admin/flowers/<?php echo e($flower->id); ?>/update" method="post" enctype="multipart/form-data">
             <?php echo csrf_field(); ?>

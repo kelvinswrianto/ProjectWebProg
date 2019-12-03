@@ -78,10 +78,12 @@
     }
 
     #update {
+        border: solid #CBB956 1px;
         background-color: #CBB956;
     }
 
     #delete {
+        border: solid #bf5329 1px;
         background-color: #bf5329;
     }
 
@@ -138,18 +140,74 @@
         padding-left: 10px;
         max-height: 100px;
         overflow: auto;
-        padding-top: 15px;
+        margin-top: 15px;
     }
+
+    .alert {
+        font-size: 18px;
+        margin-top: 40px;
+        padding: 20px;
+        background-color: #f44336;
+        color: white;
+        border-radius: 7px;
+    }
+
+    .closebtn {
+        margin-left: 15px;
+        color: white;
+        font-weight: bold;
+        float: right;
+        font-size: 22px;
+        line-height: 20px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .closebtn:hover {
+        color: black;
+    }
+
 </style>
 
 <?php $__env->startSection('contents'); ?>
     <p id="title">Manage Flowers</p>
     <hr>
     <a href="/admin/flowers/insert" class="insertbtn">Insert Flower</a>
-    <form class="search" action="action_page.php">
+    <form class="search" action="/admin/flowers/search">
         <input type="text" placeholder="I want to find ..." name="search">
         <button type="submit">Search</button>
     </form>
+
+    <?php if(\Session::has('alert')): ?>
+        <div class="alert">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+            <strong>Sorry, </strong> <?php echo e(Session::get('alert')); ?> <strong> Try another keywords.</strong>
+        </div>
+    <?php endif; ?>
+
+    <?php if(\Session::has('alert-success')): ?>
+        <div class="alert" style="background-color: #3490dc">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+            <strong>Nice! </strong> <?php echo e(Session::get('alert-success')); ?>
+
+        </div>
+    <?php endif; ?>
+
+    <?php if(\Session::has('alert-update')): ?>
+        <div class="alert" style="background-color: #3490dc">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+            <strong>Good job! </strong> <?php echo e(Session::get('alert-update')); ?>
+
+        </div>
+    <?php endif; ?>
+
+    <?php if(\Session::has('alert-delete')): ?>
+        <div class="alert" style="background-color: #3490dc">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+            <strong>Success! </strong> <?php echo e(Session::get('alert-delete')); ?>
+
+        </div>
+    <?php endif; ?>
 
     <div class="cardview">
         <?php $__currentLoopData = $flowers; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $flower): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -188,4 +246,4 @@
 
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('layout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\Kuliah\Semester 5\Web Programming\PROJECT LAB\LARAVEL\ProjectWebProg\ProjectWebProg\resources\views/admin/manage_flower.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('admin.layoutadmin', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\Kuliah\Semester 5\Web Programming\PROJECT LAB\LARAVEL\ProjectWebProg\ProjectWebProg\resources\views/admin/manage_flower.blade.php ENDPATH**/ ?>
