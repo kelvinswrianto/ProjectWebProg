@@ -91,11 +91,12 @@ class RegisterController extends Controller
         }
     }
 
-    public function order($id){
+    public function order(Request $request, $id){
         $orders = Flower::find($id);
 
         $order = DB::table('carts')->where('id_order', $id)->first();
         if($order) {
+            $orders->flower_stock = $orders->flower_stock-$request->flower_stock;
             $affected = DB::table('carts')
                 ->where('id_order', $id)
                 ->update([
@@ -109,6 +110,7 @@ class RegisterController extends Controller
         }
         else{
             $order = new Cart();
+            $orders->flower_stock = $orders->flower_stock-$request->flower_stock;
             $order->id_order = $id;
             $order->user_id = Session::get('user_id');
             $order->quantity = $order->quantity + 1;
@@ -119,6 +121,7 @@ class RegisterController extends Controller
             $order->save();
         }
 
-        return redirect()->back()->with('alert-success','Flower added to cart !');
+        $orders->save();
+        return redirect('homepage')->with('alert-success','Flower added to cart !');
     }
 }

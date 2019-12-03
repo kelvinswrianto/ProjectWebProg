@@ -336,6 +336,7 @@
         }
         .form-insert input[type=submit]:hover,
         .form-insert button:hover,
+        .box .detail .contentdata .rightcontent input:hover,
         .detailorder input[type=submit]:hover{
             background: white;
             color: #F37A71;
