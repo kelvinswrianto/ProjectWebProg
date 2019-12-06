@@ -11,6 +11,8 @@
 |
 */
 
+Route::get('/cart', 'CartController@index');
+
 Route::get('/homepage', 'HomeController@index');
 Route::get('/register', 'RegisterController@register');
 Auth::routes();
@@ -21,6 +23,8 @@ Route::get('/admin', function () {
     return view('admin.insert_type');
 });
 
+Route::post('/cart/checkout', 'TransactionHistoryController@checkout');
+Route::delete('/cart/{id}/delete', 'CartController@remove');
 Route::get('/flowers/{id}', 'FlowerDetailsController@detail');
 Route::get('/flowers/{id}/orderdetail', 'FlowerDetailsController@orderdetail');
 Route::get('/flowers/{id}/order', 'RegisterController@order');
