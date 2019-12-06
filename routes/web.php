@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/cart', 'CartController@index');
+Route::get('/cart', 'CartController@index')->middleware('logincheck');
 
-Route::get('/homepage', 'HomeController@index');
+Route::get('/homepage', 'HomeController@index')->middleware('logincheck');
 Route::get('/register', 'RegisterController@register');
 Auth::routes();
 
@@ -23,20 +23,20 @@ Route::get('/admin', function () {
     return view('admin.insert_type');
 });
 
-Route::post('/cart/checkout', 'TransactionHistoryController@checkout');
-Route::delete('/cart/{id}/delete', 'CartController@remove');
-Route::get('/flowers/{id}', 'FlowerDetailsController@detail');
-Route::get('/flowers/{id}/orderdetail', 'FlowerDetailsController@orderdetail');
-Route::get('/flowers/{id}/order', 'RegisterController@order');
-Route::get('/logout', 'HomeController@logout');
-Route::get('/homepage/search', 'HomeController@search');
+Route::post('/cart/checkout', 'TransactionHistoryController@checkout')->middleware('logincheck');
+Route::delete('/cart/{id}/delete', 'CartController@remove')->middleware('logincheck');
+Route::get('/flowers/{id}', 'FlowerDetailsController@detail')->middleware('logincheck');
+Route::get('/flowers/{id}/orderdetail', 'FlowerDetailsController@orderdetail')->middleware('logincheck');
+Route::get('/flowers/{id}/order', 'RegisterController@order')->middleware('logincheck');
+Route::get('/logout', 'HomeController@logout')->middleware('logincheck');
+Route::get('/homepage/search', 'HomeController@search')->middleware('logincheck');
 Route::get('/login', 'RegisterController@login');
-Route::post('/registerPost', 'RegisterController@store');
-Route::post('/loginPost', 'RegisterController@loginPost');
-Route::put('/courier/{id}', 'CourierController@update');
-Route::get('/courier/{id}/edit', 'CourierController@edit');
-Route::get('admin/layout', 'FlowerTypeController@create');
-Route::post('admin/layout', 'FlowerTypeController@store');
+Route::post('/registerPost', 'RegisterController@store')->middleware('logincheck');
+Route::post('/loginPost', 'RegisterController@loginPost')->middleware('logincheck');
+Route::put('/courier/{id}', 'CourierController@update')->middleware('logincheck');
+Route::get('/courier/{id}/edit', 'CourierController@edit')->middleware('logincheck');
+Route::get('admin/layout', 'FlowerTypeController@create')->middleware('logincheck');
+Route::post('admin/layout', 'FlowerTypeController@store')->middleware('logincheck');
 
 
 Route::get('/admin/flowers', 'FlowerController@index')->middleware('admin');
