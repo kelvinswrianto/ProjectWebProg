@@ -31,8 +31,8 @@ Route::get('/flowers/{id}/order', 'RegisterController@order')->middleware('login
 Route::get('/logout', 'HomeController@logout')->middleware('logincheck');
 Route::get('/homepage/search', 'HomeController@search')->middleware('logincheck');
 Route::get('/login', 'RegisterController@login');
-Route::post('/registerPost', 'RegisterController@store')->middleware('logincheck');
-Route::post('/loginPost', 'RegisterController@loginPost')->middleware('logincheck');
+Route::post('/registerPost', 'RegisterController@store');
+Route::post('/loginPost', 'RegisterController@loginPost');
 Route::put('/courier/{id}', 'CourierController@update')->middleware('logincheck');
 Route::get('/courier/{id}/edit', 'CourierController@edit')->middleware('logincheck');
 Route::get('admin/layout', 'FlowerTypeController@create')->middleware('logincheck');
