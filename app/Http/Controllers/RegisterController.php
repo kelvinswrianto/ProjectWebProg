@@ -24,6 +24,7 @@ class RegisterController extends Controller
     }
 
     public function store(Request $request){
+        //dd($request->emailregister);
         $rules = [
             'emailregister' => 'required|string|email|max:255|unique:users',
             'nameregister' => 'required',
