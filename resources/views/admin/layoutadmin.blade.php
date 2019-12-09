@@ -237,7 +237,7 @@
         }
 
         .form-insert td > input{
-            width: 500px;
+            width: 300px;
             font-weight: lighter;
             float: left;
             padding-top: 8px;

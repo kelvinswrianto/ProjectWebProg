@@ -449,7 +449,7 @@
                         <a href="/homepage">Home Page</a>
                         <a href="/admin/flowers">Manage Flower</a>
                         <a href="/admin/flowers/type">Manage Flower Type</a>
-                        <a href="">Manage Courier</a>
+                        <a href="/admin/couriers">Manage Courier</a>
                         <a href="/cart">Cart</a>
                     </div>
                 </div>
