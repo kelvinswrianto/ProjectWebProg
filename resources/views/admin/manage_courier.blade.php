@@ -167,7 +167,7 @@
 @section('contents')
     <p id="title">Manage Couriers</p>
     <hr>
-    <a href="/admin/couriers/insert" class="insertbtn">Insert Flower Type</a>
+    <a href="/admin/couriers/insert" class="insertbtn">Insert Courier</a>
     <form class="search" action="/admin/couriers/search" method="get">
         <input type="text" placeholder="I want to find ..." name="search">
         <button type="submit">Search</button>
