@@ -38,7 +38,6 @@
     <div class="form-insert">
         <form action="/courier/{{$courier->id}}" method="post" enctype="multipart/form-data">
             @csrf
-            {{method_field('put')}}
             <table id="courier-insert">
                 <tr>
                     <td><span>Courier ID</span></td>

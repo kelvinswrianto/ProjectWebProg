@@ -62,6 +62,11 @@ Route::get('/admin/couriers/search', 'CourierController@search')->middleware('ad
 Route::get('/admin/couriers/insert', 'CourierController@create')->middleware('admin');
 Route::post('/admin/couriers/insert', 'CourierController@store')->middleware('admin');
 
+Route::get('/admin/manage_users', 'AdminController@index')->middleware('admin');
+Route::delete('/admin/manage_users/{id}/delete','AdminController@remove')->middleware('admin');
+Route::get('/admin/manage_users/{id}/edit', 'AdminController@edit')->middleware('admin');
+Route::post('/admin/manage_users/{id}/update','AdminController@update')->middleware('admin');
+
 Route::get('/profile/edit', 'ProfileController@edit');
 Route::put('/profile', 'ProfileController@update');
 
