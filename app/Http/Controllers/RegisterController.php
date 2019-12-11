@@ -49,7 +49,7 @@ class RegisterController extends Controller
 
         $product_image = $request->file('product_image');
         $image_name = Uuid::uuid().'.'.$product_image->getClientOriginalExtension();
-        $dest = storage_path('storage/app/public/userimages');
+        $dest = public_path('storage/images');
         $product_image->move($dest, $image_name);
         $user->product_image = $image_name;
         $user->save();

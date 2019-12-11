@@ -25,6 +25,6 @@ class CartController extends Controller
         $cartdata = Cart::find($id);
         Session::put('flower-delete', $cartdata->flower_name);
         $cartdata->delete();
-        return redirect('/cart')->with('alert-delete', Session::get('flower-delete').' has been removed from cart !');
+        return redirect('/cart')->with('alert-delete', Session::get('flower-delete').' has been removed from cart!');
     }
 }

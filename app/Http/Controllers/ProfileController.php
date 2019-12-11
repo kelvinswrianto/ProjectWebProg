@@ -11,9 +11,11 @@ class ProfileController extends Controller
 {
     //
     public function update(Request $request){
+        $id = Session::get('id');
+
         $rules = [
             'nameregister' => 'required|string',
-            'emailregister' => 'email|unique:users',
+            'emailregister' => 'email|unique:users,emailregister,'.$id,
             'phoneregister' => 'required|numeric|digits_between:8,12',
             'gender' => 'required|in:male,female',
             'address' => 'required|min:10',
@@ -32,7 +34,7 @@ class ProfileController extends Controller
 
         $profile_image = $request->file('product_image');
         $image_name = Uuid::uuid().'.'.$profile_image->getClientOriginalExtension();
-        $dest = storage_path('storage/app/public/images');
+        $dest = public_path('storage/app/public/images');
         $profile_image->move($dest, $image_name);
         $profile->product_image = $image_name;
 

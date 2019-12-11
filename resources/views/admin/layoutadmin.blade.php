@@ -237,7 +237,7 @@
         }
 
         .form-insert td > input{
-            width: 500px;
+            width: 300px;
             font-weight: lighter;
             float: left;
             padding-top: 8px;
@@ -404,7 +404,7 @@
                 <a href="/homepage">Home Page</a>
                 <a href="/admin/flowers">Manage Flower</a>
                 <a href="/admin/flowers/type">Manage Flower Type</a>
-                <a href="">Manage Courier</a>
+                <a href="/admin/couriers">Manage Courier</a>
                 <a href="/cart">Cart</a>
             </div>
         </div>

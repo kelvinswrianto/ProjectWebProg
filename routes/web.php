@@ -54,6 +54,19 @@ Route::get('/admin/flowers/type/search', 'FlowerTypeController@search')->middlew
 Route::get('/admin/flowers/type/insert', 'FlowerTypeController@create')->middleware('admin');
 Route::post('/admin/flowers/type/insert', 'FlowerTypeController@store')->middleware('admin');
 
+Route::get('/admin/couriers', 'CourierController@index')->middleware('admin');
+Route::get('/admin/couriers/{id}/edit','CourierController@edit')->middleware('admin');
+Route::post('/admin/couriers/{id}/update','CourierController@update')->middleware('admin');
+Route::delete('/admin/couriers/{id}/delete', 'CourierController@destroy')->middleware('admin');
+Route::get('/admin/couriers/search', 'CourierController@search')->middleware('admin');
+Route::get('/admin/couriers/insert', 'CourierController@create')->middleware('admin');
+Route::post('/admin/couriers/insert', 'CourierController@store')->middleware('admin');
+
+Route::get('/admin/manage_users', 'AdminController@index')->middleware('admin');
+Route::delete('/admin/manage_users/{id}/delete','AdminController@remove')->middleware('admin');
+Route::get('/admin/manage_users/{id}/edit', 'AdminController@edit')->middleware('admin');
+Route::post('/admin/manage_users/{id}/update','AdminController@update')->middleware('admin');
+
 Route::get('/profile/edit', 'ProfileController@edit');
 Route::put('/profile', 'ProfileController@update');
 
