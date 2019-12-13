@@ -14,7 +14,7 @@ class CreateTransactionHistoriesTable extends Migration
     public function up()
     {
         Schema::create('transaction_histories', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->BigInteger('id');
             $table->BigInteger('user_id');
             $table->string('member_name');
             $table->string('courier');

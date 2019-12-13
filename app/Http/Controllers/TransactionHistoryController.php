@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Cart;
+use App\TransactionHeader;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -10,13 +11,24 @@ use App\TransactionHistory;
 
 class TransactionHistoryController extends Controller
 {
+    public function createHistoryHeader(){
+        $header = new TransactionHeader();
+        $header->total_price = Session::get('totalprice');
+        $header->save();
+        return $header->id;
+    }
+
     public function checkout(Request $request)
     {
         //dd(substr($request->selectvalue, 0, strpos($request->selectvalue, ' ')));
         $carts = Cart::where('user_id', '=', Session::get('user_id'))->get();
         $user = User::find(Session::get('user_id'));
-        foreach ($carts as $history){
+
+        $header_id = Self::createHistoryHeader();
+
+        foreach ($carts as $history) {
             $datahistory = new TransactionHistory();
+            $datahistory->id = $header_id;
             $datahistory->user_id = Session::get('user_id');
             $datahistory->member_name = $user->nameregister;
             $datahistory->courier = substr($request->selectvalue, 0, strpos($request->selectvalue, ' '));
