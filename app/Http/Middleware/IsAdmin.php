@@ -18,13 +18,18 @@ class IsAdmin
      */
     public function handle($request, Closure $next)
     {
-        $userss = Session::get("role");
-        //dd($userss);
-        if($userss == "user"){
-            return redirect('homepage');
+        if(Session::get('login')==1){
+            $userss = Session::get("role");
+            //dd($userss);
+            if($userss == "user"){
+                return redirect('homepage');
+            }
+            else {
+                return $next($request);
+            }
         }
-        else {
-            return $next($request);
+        else{
+            return redirect('login');
         }
     }
 }
