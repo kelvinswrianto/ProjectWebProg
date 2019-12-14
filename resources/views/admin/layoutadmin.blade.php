@@ -406,6 +406,7 @@
                 <a href="/admin/flowers/type">Manage Flower Type</a>
                 <a href="/admin/couriers">Manage Courier</a>
                 <a href="/cart">Cart</a>
+                <a href="/admin/transaction_history">Transaction History</a>
             </div>
         </div>
     </div>

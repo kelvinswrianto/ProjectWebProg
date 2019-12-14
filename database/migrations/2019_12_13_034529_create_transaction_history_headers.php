@@ -13,9 +13,11 @@ class CreateTransactionHistoryHeaders extends Migration
      */
     public function up()
     {
-        Schema::create('transaction_history_header', function (Blueprint $table) {
+        Schema::create('transaction_history_headers', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('member_name');
             $table->bigInteger('total_price');
+            $table->string('courier');
             $table->timestamps();
         });
     }

@@ -15,9 +15,6 @@ class CreateTransactionHistoriesTable extends Migration
     {
         Schema::create('transaction_histories', function (Blueprint $table) {
             $table->BigInteger('id');
-            $table->BigInteger('user_id');
-            $table->string('member_name');
-            $table->string('courier');
             $table->string('flower_name');
             $table->integer('flower_price');
             $table->integer('flower_quantity');

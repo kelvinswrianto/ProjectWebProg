@@ -25,19 +25,21 @@ Route::get('/admin', function () {
 
 Route::post('/cart/checkout', 'TransactionHistoryController@checkout')->middleware('logincheck');
 Route::delete('/cart/{id}/delete', 'CartController@remove')->middleware('logincheck');
+
 Route::get('/flowers/{id}', 'FlowerDetailsController@detail')->middleware('logincheck');
 Route::get('/flowers/{id}/orderdetail', 'FlowerDetailsController@orderdetail')->middleware('logincheck');
 Route::get('/flowers/{id}/order', 'RegisterController@order')->middleware('logincheck');
+
 Route::get('/logout', 'HomeController@logout')->middleware('logincheck');
 Route::get('/homepage/search', 'HomeController@search')->middleware('logincheck');
 Route::get('/login', 'RegisterController@login');
 Route::post('/registerPost', 'RegisterController@store');
 Route::post('/loginPost', 'RegisterController@loginPost');
+
 Route::put('/courier/{id}', 'CourierController@update')->middleware('logincheck');
 Route::get('/courier/{id}/edit', 'CourierController@edit')->middleware('logincheck');
 Route::get('admin/layout', 'FlowerTypeController@create')->middleware('logincheck');
 Route::post('admin/layout', 'FlowerTypeController@store')->middleware('logincheck');
-
 
 Route::get('/admin/flowers', 'FlowerController@index')->middleware('admin');
 Route::get('/admin/flowers/{id}/edit','FlowerController@edit')->middleware('admin');
@@ -70,3 +72,4 @@ Route::post('/admin/manage_users/{id}/update','AdminController@update')->middlew
 Route::get('/profile/edit', 'ProfileController@edit');
 Route::put('/profile', 'ProfileController@update');
 
+Route::get('/admin/transaction_history', 'TransactionHistoryController@viewHistory')->middleware('admin');
