@@ -22,11 +22,16 @@ class FlowerTypeController extends Controller
 
     public function store(Request $request)
     {
+        $rules = [
+            'flower_type' => 'required|min:4'
+        ];
+
+        $this->validate($request, $rules);
         $data = DB::table('flower_types')
             ->where('flower_type', $request->flower_type)->first();
 
         if($data){
-            return redirect('/admin/flowers/type/insert')->with('alert-fail', 'Flower\'s type already in database.');
+            return redirect('/admin/flowers/type/insert')->with('alert-fail', 'Flower\'s type already in database. Try another name.');
         }
         else{
             $type = new FlowerType();

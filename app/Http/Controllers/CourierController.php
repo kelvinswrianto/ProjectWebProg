@@ -22,6 +22,12 @@ class CourierController extends Controller
 
     public function store(Request $request)
     {
+        $rules = [
+            'courier_name' => 'required|min:3',
+            'courier_price' => 'required|numeric|min:3000'
+        ];
+
+        $this->validate($request, $rules);
         $data = DB::table('couriers')
             ->where('courier_name', $request->courier_name)->first();
 

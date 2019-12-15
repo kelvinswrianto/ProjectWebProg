@@ -26,11 +26,11 @@ class FlowerController extends Controller
     public function store(Request $request)
     {
         $rules = [
-            'flower_name' => 'required|min:5|max:50',
-            'flower_price' => 'required|numeric',
-            'flower_stock' => 'required|numeric',
-            'flower_description' => 'required',
-            'flower_image' => 'required',
+            'flower_name' => 'required|min:3',
+            'flower_price' => 'required|numeric|min:10000',
+            'flower_stock' => 'required|numeric|min:0',
+            'flower_description' => 'required|min:20|max:200',
+            'flower_image' => 'required|mimes:jpeg,png,jpg',
         ];
 
         $this->validate($request, $rules);
@@ -81,12 +81,13 @@ class FlowerController extends Controller
     public function update(Request $request, $id)
     {
         $rules = [
-            'flower_name' => 'required|min:5|max:50',
-            'flower_price' => 'required|numeric',
-            'flower_stock' => 'required|numeric',
-            'flower_description' => 'required',
-            'flower_image' => 'required',
+            'flower_name' => 'required|min:3',
+            'flower_price' => 'required|numeric|min:10000',
+            'flower_stock' => 'required|numeric|min:0',
+            'flower_description' => 'required|min:20|max:200',
+            'flower_image' => 'required|mimes:jpeg,png,jpg',
         ];
+
         $this->validate($request, $rules);
         $flower = Flower::find($id);
         $flower->flower_name = $request->flower_name;
