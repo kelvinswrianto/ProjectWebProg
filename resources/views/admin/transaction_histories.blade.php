@@ -198,6 +198,7 @@
             <p>Transaction ID   : {{$header->id}}</p>
             <p>Transaction Date : {{$header->created_at}}</p>
             <p>Member Name      : {{$header->member_name}}</p>
+            <p>Courier          : {{$header->courier}}</p>
         </div>
 
         <table class="table-head" id="products">

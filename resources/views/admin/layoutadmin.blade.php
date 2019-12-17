@@ -402,6 +402,7 @@
             </button>
             <div class="dropdown-content">
                 <a href="/homepage">Home Page</a>
+                <a href="/admin/manage_users">Manage Users</a>
                 <a href="/admin/flowers">Manage Flower</a>
                 <a href="/admin/flowers/type">Manage Flower Type</a>
                 <a href="/admin/couriers">Manage Courier</a>
